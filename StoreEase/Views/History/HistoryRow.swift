@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct HistoryRow: View {
+    var activity: Activity
+    
     var body: some View {
         VStack(alignment: .leading){
-            Text("Check-in")
+            Text(activity.type.rawValue)
                 .font(.body)
             HStack{
                 Text("2005-03-11")
@@ -30,9 +32,8 @@ struct HistoryRow: View {
 
 #Preview {
     return Group {
-        HistoryRow()
-        HistoryRow()
-        HistoryRow()
+        HistoryRow(activity: activities[0])
+        HistoryRow(activity: activities[1])
     }
     
 }

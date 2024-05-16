@@ -13,6 +13,9 @@ struct HistoryList: View {
     @State private var dateFilter = Date()
     @State private var filter = FilterActivity.all
     @State private var inspectorIsShown: Bool = false
+    @State private var activityId: Int = -1
+    
+//    var activity: Activity
     
     enum FilterActivity: String, CaseIterable, Identifiable {
         case all = "All"
@@ -28,18 +31,13 @@ struct HistoryList: View {
             DatePicker("Date", selection: $dateFilter, displayedComponents: .date)
                 .datePickerStyle(.compact)
             
-            HistoryRow()
-                .onTapGesture {
-                    inspectorIsShown.toggle()
-                }
-            HistoryRow()
-                .onTapGesture {
-                    inspectorIsShown.toggle()
-                }
-            HistoryRow()
-                .onTapGesture {
-                    inspectorIsShown.toggle()
-                }
+            ForEach(activities) { activity in
+                HistoryRow(activity: activity)
+                    .onTapGesture {
+                        inspectorIsShown = true
+                        activityId = activity.id
+                    }
+            }
         }
         .frame(minWidth: 100)
         .navigationTitle("History")
@@ -64,11 +62,20 @@ struct HistoryList: View {
             }
         }
         .inspector(isPresented: $inspectorIsShown) {
-            ActivityDetail()
-                .frame(minWidth: 100, maxWidth: .infinity)
+            if let activity = getActivityById(id: activityId) {
+                ActivityDetail(activity: activity)
+                    .frame(minWidth: 100, maxWidth: .infinity)
+            } else {
+                Text("Please select history")
+            }
         }
 //        .searchable(text: $searchText, prompt: "Search")
     }
+}
+
+func getActivityById(id: Int?) -> Activity? {
+    guard let id = id else { return nil }
+    return activities.first { $0.id == id }
 }
 
 #Preview {

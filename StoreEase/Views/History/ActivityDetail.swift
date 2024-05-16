@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ActivityDetail: View {
     
+    var activity: Activity
+    
     var body: some View {
         
         List{
-            Section(header: Text("Check-in Summary").bold().font(.title)){
+            Section(header: Text("\(activity.type.rawValue) Summary").bold().font(.title)){
                 HStack{
                     Text("Admin")
                         .font(.body)
@@ -42,9 +44,10 @@ struct ActivityDetail: View {
                 
             }
             
-            Section(header: Text("Items")){
-                ActivityItemRow()
-                ActivityItemRow()
+            Section(header: Text("Items and Quantity Added")){
+                ForEach(activity.listOfAddedProduct) { addedProduct in
+                    ActivityItemRow(addedProduct: addedProduct)
+                }
             }
         }
         .navigationTitle("Check-in Summary")
@@ -52,5 +55,5 @@ struct ActivityDetail: View {
 }
 
 #Preview {
-    ActivityDetail()
+    ActivityDetail(activity: activities[0])
 }

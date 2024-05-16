@@ -8,14 +8,16 @@
 import SwiftUI
 
 struct ActivityItemRow: View {
+    var addedProduct: AddedProduct
+    
     var body: some View {
         HStack{
-            Text("Rinso")
+            Text(addedProduct.product.name)
                 .font(.body)
             
             Spacer()
             
-            Text("3")
+            Text("\(addedProduct.qty)")
                 .font(.body)
                 .foregroundStyle(.secondary)
         }.padding(.vertical, 3)
@@ -23,10 +25,8 @@ struct ActivityItemRow: View {
 
 }
 
-#Preview {
-    return Group{
-        ActivityItemRow()
-        ActivityItemRow()
-
-    }
-}
+//#Preview {
+//    return Group{
+//        ActivityItemRow(addedProduct: AddedProduct)
+//    }
+//}
