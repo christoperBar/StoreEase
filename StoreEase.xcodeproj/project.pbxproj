@@ -21,6 +21,7 @@
 		EE7A07E02BF4EE7C0033B0FE /* SideNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07DF2BF4EE7C0033B0FE /* SideNavigationBar.swift */; };
 		EE7A07E42BF4EF470033B0FE /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E32BF4EF470033B0FE /* View.swift */; };
 		EE7A07E72BF4F04F0033B0FE /* StocksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E62BF4F04F0033B0FE /* StocksList.swift */; };
+		F921050E2BF6558E0096EED1 /* StocksRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921050D2BF6558E0096EED1 /* StocksRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		EE7A07DF2BF4EE7C0033B0FE /* SideNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideNavigationBar.swift; sourceTree = "<group>"; };
 		EE7A07E32BF4EF470033B0FE /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EE7A07E62BF4F04F0033B0FE /* StocksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksList.swift; sourceTree = "<group>"; };
+		F921050D2BF6558E0096EED1 /* StocksRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				EE7A07E62BF4F04F0033B0FE /* StocksList.swift */,
+				F921050D2BF6558E0096EED1 /* StocksRow.swift */,
 			);
 			path = Stocks;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				04BE24942BF4CBF5005CBF2C /* ContentView.swift in Sources */,
 				EE7A07E42BF4EF470033B0FE /* View.swift in Sources */,
 				04BE24962BF4CBF5005CBF2C /* Item.swift in Sources */,
+				F921050E2BF6558E0096EED1 /* StocksRow.swift in Sources */,
 				04B61C902BF63FF900331A1A /* Product.swift in Sources */,
 				04C8E6192BF5E6F2006A77CD /* ActivityDetail.swift in Sources */,
 				04C8E61D2BF5E72B006A77CD /* ActivityItemRow.swift in Sources */,
