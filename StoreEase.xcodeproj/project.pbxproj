@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04B61C8E2BF63B8800331A1A /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B61C8D2BF63B8800331A1A /* Activity.swift */; };
+		04B61C902BF63FF900331A1A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B61C8F2BF63FF900331A1A /* Product.swift */; };
 		04BE24922BF4CBF5005CBF2C /* StoreEaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE24912BF4CBF5005CBF2C /* StoreEaseApp.swift */; };
 		04BE24942BF4CBF5005CBF2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE24932BF4CBF5005CBF2C /* ContentView.swift */; };
 		04BE24962BF4CBF5005CBF2C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE24952BF4CBF5005CBF2C /* Item.swift */; };
 		04BE24982BF4CBF8005CBF2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BE24972BF4CBF8005CBF2C /* Assets.xcassets */; };
 		04BE249B2BF4CBF8005CBF2C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BE249A2BF4CBF8005CBF2C /* Preview Assets.xcassets */; };
+<<<<<<< HEAD
 		EE0C7E092BF5FC2100BBA388 /* ProductItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0C7E082BF5FC2100BBA388 /* ProductItem.swift */; };
 		EE0C7E0B2BF6311A00BBA388 /* VDKComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0C7E0A2BF6311A00BBA388 /* VDKComboBox.swift */; };
 		EE0C7E0D2BF680C500BBA388 /* ActivityItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0C7E0C2BF680C500BBA388 /* ActivityItem.swift */; };
@@ -21,9 +24,21 @@
 		EE7A07E72BF4F04F0033B0FE /* StocksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E62BF4F04F0033B0FE /* StocksList.swift */; };
 		EE7A07EA2BF5F73D0033B0FE /* CheckinForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E92BF5F73D0033B0FE /* CheckinForm.swift */; };
 		EEE11EF32BF7B1790052EEB0 /* CheckoutForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE11EF22BF7B1790052EEB0 /* CheckoutForm.swift */; };
+=======
+		04C8E6112BF5E209006A77CD /* HistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8E6102BF5E209006A77CD /* HistoryList.swift */; };
+		04C8E6132BF5E257006A77CD /* HistoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8E6122BF5E257006A77CD /* HistoryRow.swift */; };
+		04C8E6192BF5E6F2006A77CD /* ActivityDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8E6182BF5E6F2006A77CD /* ActivityDetail.swift */; };
+		04C8E61D2BF5E72B006A77CD /* ActivityItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8E61C2BF5E72B006A77CD /* ActivityItemRow.swift */; };
+		EE7A07E02BF4EE7C0033B0FE /* SideNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07DF2BF4EE7C0033B0FE /* SideNavigationBar.swift */; };
+		EE7A07E42BF4EF470033B0FE /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E32BF4EF470033B0FE /* View.swift */; };
+		EE7A07E72BF4F04F0033B0FE /* StocksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E62BF4F04F0033B0FE /* StocksList.swift */; };
+		F921050E2BF6558E0096EED1 /* StocksRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921050D2BF6558E0096EED1 /* StocksRow.swift */; };
+>>>>>>> dev
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04B61C8D2BF63B8800331A1A /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		04B61C8F2BF63FF900331A1A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		04BE248E2BF4CBF5005CBF2C /* StoreEase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreEase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE24912BF4CBF5005CBF2C /* StoreEaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEaseApp.swift; sourceTree = "<group>"; };
 		04BE24932BF4CBF5005CBF2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -31,6 +46,7 @@
 		04BE24972BF4CBF8005CBF2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04BE249A2BF4CBF8005CBF2C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04BE249C2BF4CBF8005CBF2C /* StoreEase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StoreEase.entitlements; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		EE0C7E082BF5FC2100BBA388 /* ProductItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItem.swift; sourceTree = "<group>"; };
 		EE0C7E0A2BF6311A00BBA388 /* VDKComboBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDKComboBox.swift; sourceTree = "<group>"; };
 		EE0C7E0C2BF680C500BBA388 /* ActivityItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityItem.swift; sourceTree = "<group>"; };
@@ -40,6 +56,16 @@
 		EE7A07E62BF4F04F0033B0FE /* StocksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksList.swift; sourceTree = "<group>"; };
 		EE7A07E92BF5F73D0033B0FE /* CheckinForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinForm.swift; sourceTree = "<group>"; };
 		EEE11EF22BF7B1790052EEB0 /* CheckoutForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutForm.swift; sourceTree = "<group>"; };
+=======
+		04C8E6102BF5E209006A77CD /* HistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryList.swift; sourceTree = "<group>"; };
+		04C8E6122BF5E257006A77CD /* HistoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRow.swift; sourceTree = "<group>"; };
+		04C8E6182BF5E6F2006A77CD /* ActivityDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetail.swift; sourceTree = "<group>"; };
+		04C8E61C2BF5E72B006A77CD /* ActivityItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityItemRow.swift; sourceTree = "<group>"; };
+		EE7A07DF2BF4EE7C0033B0FE /* SideNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideNavigationBar.swift; sourceTree = "<group>"; };
+		EE7A07E32BF4EF470033B0FE /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		EE7A07E62BF4F04F0033B0FE /* StocksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksList.swift; sourceTree = "<group>"; };
+		F921050D2BF6558E0096EED1 /* StocksRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksRow.swift; sourceTree = "<group>"; };
+>>>>>>> dev
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,11 +98,9 @@
 		04BE24902BF4CBF5005CBF2C /* StoreEase */ = {
 			isa = PBXGroup;
 			children = (
+				04BE24912BF4CBF5005CBF2C /* StoreEaseApp.swift */,
 				EE7A07E12BF4EF300033B0FE /* Model */,
 				EE7A07DD2BF4EE430033B0FE /* Views */,
-				04BE24912BF4CBF5005CBF2C /* StoreEaseApp.swift */,
-				04BE24932BF4CBF5005CBF2C /* ContentView.swift */,
-				04BE24952BF4CBF5005CBF2C /* Item.swift */,
 				04BE24972BF4CBF8005CBF2C /* Assets.xcassets */,
 				04BE249C2BF4CBF8005CBF2C /* StoreEase.entitlements */,
 				04BE24992BF4CBF8005CBF2C /* Preview Content */,
@@ -92,11 +116,27 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		04C8E60F2BF5E1AB006A77CD /* History */ = {
+			isa = PBXGroup;
+			children = (
+				04C8E6102BF5E209006A77CD /* HistoryList.swift */,
+				04C8E6122BF5E257006A77CD /* HistoryRow.swift */,
+				04C8E6182BF5E6F2006A77CD /* ActivityDetail.swift */,
+				04C8E61C2BF5E72B006A77CD /* ActivityItemRow.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
 		EE7A07DD2BF4EE430033B0FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				EEE11EF12BF7B15C0052EEB0 /* check-out */,
 				EE7A07E82BF5F1220033B0FE /* check-in */,
+=======
+				04BE24932BF4CBF5005CBF2C /* ContentView.swift */,
+				04C8E60F2BF5E1AB006A77CD /* History */,
+>>>>>>> dev
 				EE7A07E52BF4F0200033B0FE /* Stocks */,
 				EE7A07DE2BF4EE4E0033B0FE /* Helper */,
 			);
@@ -116,6 +156,9 @@
 		EE7A07E12BF4EF300033B0FE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04B61C8D2BF63B8800331A1A /* Activity.swift */,
+				04B61C8F2BF63FF900331A1A /* Product.swift */,
+				04BE24952BF4CBF5005CBF2C /* Item.swift */,
 				EE7A07E32BF4EF470033B0FE /* View.swift */,
 				EE0C7E082BF5FC2100BBA388 /* ProductItem.swift */,
 				EE0C7E0C2BF680C500BBA388 /* ActivityItem.swift */,
@@ -127,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				EE7A07E62BF4F04F0033B0FE /* StocksList.swift */,
+				F921050D2BF6558E0096EED1 /* StocksRow.swift */,
 			);
 			path = Stocks;
 			sourceTree = "<group>";
@@ -217,6 +261,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04C8E6112BF5E209006A77CD /* HistoryList.swift in Sources */,
 				EE7A07E02BF4EE7C0033B0FE /* SideNavigationBar.swift in Sources */,
 				EE0C7E092BF5FC2100BBA388 /* ProductItem.swift in Sources */,
 				EE7A07EA2BF5F73D0033B0FE /* CheckinForm.swift in Sources */,
@@ -226,7 +271,13 @@
 				EE7A07E42BF4EF470033B0FE /* View.swift in Sources */,
 				EEE11EF32BF7B1790052EEB0 /* CheckoutForm.swift in Sources */,
 				04BE24962BF4CBF5005CBF2C /* Item.swift in Sources */,
+				F921050E2BF6558E0096EED1 /* StocksRow.swift in Sources */,
+				04B61C902BF63FF900331A1A /* Product.swift in Sources */,
+				04C8E6192BF5E6F2006A77CD /* ActivityDetail.swift in Sources */,
+				04C8E61D2BF5E72B006A77CD /* ActivityItemRow.swift in Sources */,
+				04C8E6132BF5E257006A77CD /* HistoryRow.swift in Sources */,
 				EE7A07E72BF4F04F0033B0FE /* StocksList.swift in Sources */,
+				04B61C8E2BF63B8800331A1A /* Activity.swift in Sources */,
 				04BE24922BF4CBF5005CBF2C /* StoreEaseApp.swift in Sources */,
 				EE0C7E0F2BF6829B00BBA388 /* CheckInItemRow.swift in Sources */,
 			);

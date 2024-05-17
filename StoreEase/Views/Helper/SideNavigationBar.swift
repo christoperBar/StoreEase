@@ -35,6 +35,12 @@ struct SideNavigationBar: View {
                 } label: {
                     Text("Checkout")
                 }
+                
+                NavigationLink {
+                    HistoryList()
+                } label: {
+                    Text("History")
+                }
             }
             .animation(.default)
             .navigationTitle(title)
