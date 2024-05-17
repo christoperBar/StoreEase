@@ -25,6 +25,16 @@ struct SideNavigationBar: View {
                 } label: {
                     Text("Stocks")
                 }
+                NavigationLink {
+                    CheckinForm()
+                } label: {
+                    Text("Checkin")
+                }
+                NavigationLink {
+                    CheckoutForm()
+                } label: {
+                    Text("Checkout")
+                }
             }
             .animation(.default)
             .navigationTitle(title)
