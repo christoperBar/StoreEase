@@ -15,13 +15,13 @@ struct HistoryRow: View {
             Text(activity.type.rawValue)
                 .font(.body)
             HStack{
-                Text("2005-03-11")
+                Text(activity.date.formatted(date: .numeric, time: .omitted))
                     .font(.caption)
                     .foregroundStyle(.secondary)
                 
                 Spacer()
                 
-                Text("12:00")
+                Text(activity.date.formatted(date: .omitted, time: .shortened))
                     .font(.caption2)
                     .foregroundStyle(.secondary)
             }

@@ -14,6 +14,7 @@ struct HistoryList: View {
     @State private var filter = FilterActivity.all
     @State private var inspectorIsShown: Bool = false
     @State private var activityId: Int = -1
+//    @State private var selectedActivity: Activity?
     
 //    var activity: Activity
     
@@ -25,20 +26,35 @@ struct HistoryList: View {
         var id: FilterActivity { self }
     }
     
+    var filteredHistory: [Activity] {
+        activities.filter { activity in
+            let matchesType = filter == .all || filter.rawValue == activity.type.rawValue
+            let matchesDate = Calendar.current.isDate(activity.date, equalTo: dateFilter, toGranularity: .day)
+            return matchesType && matchesDate
+        }
+    }
+    
+//    var index: Int? {
+//        activities.firstIndex(where: { $0.id == selectedActivity?.id })
+//    }
+    
     var body: some View {
         
-        List{
+//        List(selection: $selectedActivity){
+        List(){
             DatePicker("Date", selection: $dateFilter, displayedComponents: .date)
                 .datePickerStyle(.compact)
             
-            ForEach(activities) { activity in
+            ForEach(filteredHistory) { activity in
                 HistoryRow(activity: activity)
                     .onTapGesture {
                         inspectorIsShown = true
                         activityId = activity.id
                     }
             }
+//            .focusedValue(\.selectedActivity, activities[index ?? 0])
         }
+        
         .frame(minWidth: 100)
         .navigationTitle("History")
         .toolbar {
