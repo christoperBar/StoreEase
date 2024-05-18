@@ -9,7 +9,9 @@ import SwiftUI
 
 struct StocksList: View {
     @State private var searchItem: String = ""
-    
+    @State private var productName: String = ""
+    @State private var isShowingSheet = false
+    @State private var isShowingUpdateSheet = false
     
     var body: some View {
         List() {
@@ -24,13 +26,47 @@ struct StocksList: View {
                     if !searchItem.isEmpty{
                         if(product.name.lowercased()).contains(searchItem.lowercased()){
                             StocksRow(product: product)
+                                .contextMenu {
+                                        Button(action: {
+                                            isShowingUpdateSheet.toggle()
+                                        }) {
+                                            Text("Update")
+                                        }
+                                    
+                                        Button {
+                                            
+                                        } label: {
+                                            Text("Delete")
+                                        }
+                                    }
+                            
                         }
                     }else{
                         StocksRow(product: product)
+                            .contextMenu {
+                                    Button(action: {
+                                        isShowingUpdateSheet.toggle()
+                                    }) {
+                                        Text("Update")
+                                    }
+
+                                    Button {
+                                        
+                                    } label: {
+                                        Text("Delete")
+                                    }
+                                }
                     }
                 }
             }
-        }
+        }.sheet(isPresented: $isShowingUpdateSheet,
+                onDismiss: {isShowingUpdateSheet = false}) {
+             StockSheet("Update Product",refProduct: $productName, onSubmit: {
+                 
+             }){
+                 isShowingUpdateSheet = false
+             }
+         }
         
         .searchable(text: $searchItem)
         .searchSuggestions{
@@ -46,10 +82,20 @@ struct StocksList: View {
         .navigationTitle("Stocks")
         .toolbar {
             ToolbarItem {
-                Button(action: {}) {
+                Button(action: {
+                    isShowingSheet.toggle()
+                }) {
                     Label("", systemImage: "plus")
-                        .foregroundColor(Color.gray)
                 }
+                .sheet(isPresented: $isShowingSheet,
+                       onDismiss: {isShowingSheet = false}) {
+                    StockSheet("Add Product",refProduct: $productName, onSubmit: {
+                        
+                    }){
+                        isShowingSheet = false
+                    }
+                }
+                    
             }
         }
         

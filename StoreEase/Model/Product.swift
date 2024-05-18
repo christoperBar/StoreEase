@@ -13,18 +13,6 @@ struct Product: Hashable, Identifiable, Codable {
     var stocks: Int
 }
 
-struct AddedProduct: Hashable, Identifiable, Codable {
-    var id: Int
-    var product: Product
-    var qty: Int
-    
-    init(id: Int, product: Product, qty: Int) {
-        self.id = id
-        self.product = product
-        self.qty = qty
-    }
-}
-
 var products:[Product] = [
     Product(id:1, name:"Surya 12", stocks: 4),
     Product(id:2, name:"Tali Jagat", stocks: 7),
