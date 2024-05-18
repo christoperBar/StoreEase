@@ -21,15 +21,6 @@
 		EE7A07E02BF4EE7C0033B0FE /* SideNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07DF2BF4EE7C0033B0FE /* SideNavigationBar.swift */; };
 		EE7A07E42BF4EF470033B0FE /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E32BF4EF470033B0FE /* View.swift */; };
 		EE7A07E72BF4F04F0033B0FE /* StocksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E62BF4F04F0033B0FE /* StocksList.swift */; };
-		EE7A07EA2BF5F73D0033B0FE /* CheckinForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E92BF5F73D0033B0FE /* CheckinForm.swift */; };
-		EEE11EF32BF7B1790052EEB0 /* CheckoutForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE11EF22BF7B1790052EEB0 /* CheckoutForm.swift */; };
-		04C8E6112BF5E209006A77CD /* HistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8E6102BF5E209006A77CD /* HistoryList.swift */; };
-		04C8E6132BF5E257006A77CD /* HistoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8E6122BF5E257006A77CD /* HistoryRow.swift */; };
-		04C8E6192BF5E6F2006A77CD /* ActivityDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8E6182BF5E6F2006A77CD /* ActivityDetail.swift */; };
-		04C8E61D2BF5E72B006A77CD /* ActivityItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8E61C2BF5E72B006A77CD /* ActivityItemRow.swift */; };
-		EE7A07E02BF4EE7C0033B0FE /* SideNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07DF2BF4EE7C0033B0FE /* SideNavigationBar.swift */; };
-		EE7A07E42BF4EF470033B0FE /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E32BF4EF470033B0FE /* View.swift */; };
-		EE7A07E72BF4F04F0033B0FE /* StocksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E62BF4F04F0033B0FE /* StocksList.swift */; };
 		F921050E2BF6558E0096EED1 /* StocksRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921050D2BF6558E0096EED1 /* StocksRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,15 +34,6 @@
 		04BE24972BF4CBF8005CBF2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04BE249A2BF4CBF8005CBF2C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04BE249C2BF4CBF8005CBF2C /* StoreEase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StoreEase.entitlements; sourceTree = "<group>"; };
-		04C8E6102BF5E209006A77CD /* HistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryList.swift; sourceTree = "<group>"; };
-		04C8E6122BF5E257006A77CD /* HistoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRow.swift; sourceTree = "<group>"; };
-		04C8E6182BF5E6F2006A77CD /* ActivityDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetail.swift; sourceTree = "<group>"; };
-		04C8E61C2BF5E72B006A77CD /* ActivityItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityItemRow.swift; sourceTree = "<group>"; };
-		EE7A07DF2BF4EE7C0033B0FE /* SideNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideNavigationBar.swift; sourceTree = "<group>"; };
-		EE7A07E32BF4EF470033B0FE /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
-		EE7A07E62BF4F04F0033B0FE /* StocksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksList.swift; sourceTree = "<group>"; };
-		EE7A07E92BF5F73D0033B0FE /* CheckinForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinForm.swift; sourceTree = "<group>"; };
-		EEE11EF22BF7B1790052EEB0 /* CheckoutForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutForm.swift; sourceTree = "<group>"; };
 		04C8E6102BF5E209006A77CD /* HistoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryList.swift; sourceTree = "<group>"; };
 		04C8E6122BF5E257006A77CD /* HistoryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRow.swift; sourceTree = "<group>"; };
 		04C8E6182BF5E6F2006A77CD /* ActivityDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDetail.swift; sourceTree = "<group>"; };
@@ -124,8 +106,6 @@
 		EE7A07DD2BF4EE430033B0FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EEE11EF12BF7B15C0052EEB0 /* check-out */,
-				EE7A07E82BF5F1220033B0FE /* check-in */,
 				04BE24932BF4CBF5005CBF2C /* ContentView.swift */,
 				04C8E60F2BF5E1AB006A77CD /* History */,
 				EE7A07E52BF4F0200033B0FE /* Stocks */,
