@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "4A347AEC-DC8C-47C3-A80A-30F735A98F6A"
-   type = "1"
+   uuid = "B1DB3DF3-2B18-4107-8CBF-0D39A5ACA8B6"
+   type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CC4269A5-F8F0-44A1-8EE9-C2A9CD797E11"
+            uuid = "5B8CB115-9695-43C4-A473-0CA7882A530B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "StoreEase/Views/check-in/CheckinForm.swift"
+            filePath = "../StoreEase/Views/History/HistoryRow.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "8"
-            endingLineNumber = "8"
+            startingLineNumber = "7"
+            endingLineNumber = "7"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>
