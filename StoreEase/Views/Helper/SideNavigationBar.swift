@@ -27,6 +27,12 @@ struct SideNavigationBar: View {
                 }
                 
                 NavigationLink {
+                    CheckinForm()
+                } label: {
+                    Text("Checkin")
+                }
+                
+                NavigationLink {
                     HistoryList()
                 } label: {
                     Text("History")
