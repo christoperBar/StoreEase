@@ -33,6 +33,12 @@ struct SideNavigationBar: View {
                 }
                 
                 NavigationLink {
+                    CheckoutForm()
+                } label: {
+                    Text("Checkout")
+                }
+                
+                NavigationLink {
                     HistoryList()
                 } label: {
                     Text("History")
