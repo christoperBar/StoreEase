@@ -12,19 +12,24 @@ struct StocksList: View {
     
     
     var body: some View {
-        VStack{
-            List(products) { product in
-                if !searchItem.isEmpty{
-                    if(product.name.lowercased()).contains(searchItem.lowercased()){
+        List() {
+            Section (header: HStack{
+                Text("Items")
+                    .padding(.leading, 7.0)
+                Spacer()
+                Text("Stocks")
+            }.padding(.horizontal)
+            ){
+                ForEach(products) { product in
+                    if !searchItem.isEmpty{
+                        if(product.name.lowercased()).contains(searchItem.lowercased()){
+                            StocksRow(product: product)
+                        }
+                    }else{
                         StocksRow(product: product)
                     }
-                }else{
-                    StocksRow(product: product)
                 }
             }
-            .cornerRadius(5)
-            .padding(.horizontal)
-            
         }
         
         .searchable(text: $searchItem)
@@ -39,7 +44,6 @@ struct StocksList: View {
         }
         
         .navigationTitle("Stocks")
-        .padding()
         .toolbar {
             ToolbarItem {
                 Button(action: {}) {
