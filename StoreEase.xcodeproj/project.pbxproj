@@ -21,6 +21,10 @@
 		EE7A07E02BF4EE7C0033B0FE /* SideNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07DF2BF4EE7C0033B0FE /* SideNavigationBar.swift */; };
 		EE7A07E42BF4EF470033B0FE /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E32BF4EF470033B0FE /* View.swift */; };
 		EE7A07E72BF4F04F0033B0FE /* StocksList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7A07E62BF4F04F0033B0FE /* StocksList.swift */; };
+		EE8929B72BF8E36300B205B5 /* CheckInItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8929B62BF8E36300B205B5 /* CheckInItemRow.swift */; };
+		EE8929B92BF8E3A600B205B5 /* VDKComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8929B82BF8E3A600B205B5 /* VDKComboBox.swift */; };
+		EE8929BB2BF8E40C00B205B5 /* CheckinForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8929BA2BF8E40C00B205B5 /* CheckinForm.swift */; };
+		EE8929BE2BF8E53100B205B5 /* CheckoutForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8929BD2BF8E53100B205B5 /* CheckoutForm.swift */; };
 		F921050E2BF6558E0096EED1 /* StocksRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921050D2BF6558E0096EED1 /* StocksRow.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +45,10 @@
 		EE7A07DF2BF4EE7C0033B0FE /* SideNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideNavigationBar.swift; sourceTree = "<group>"; };
 		EE7A07E32BF4EF470033B0FE /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		EE7A07E62BF4F04F0033B0FE /* StocksList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksList.swift; sourceTree = "<group>"; };
+		EE8929B62BF8E36300B205B5 /* CheckInItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInItemRow.swift; sourceTree = "<group>"; };
+		EE8929B82BF8E3A600B205B5 /* VDKComboBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDKComboBox.swift; sourceTree = "<group>"; };
+		EE8929BA2BF8E40C00B205B5 /* CheckinForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinForm.swift; sourceTree = "<group>"; };
+		EE8929BD2BF8E53100B205B5 /* CheckoutForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutForm.swift; sourceTree = "<group>"; };
 		F921050D2BF6558E0096EED1 /* StocksRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +114,7 @@
 		EE7A07DD2BF4EE430033B0FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EE8929B42BF8E31A00B205B5 /* Activity */,
 				04BE24932BF4CBF5005CBF2C /* ContentView.swift */,
 				04C8E60F2BF5E1AB006A77CD /* History */,
 				EE7A07E52BF4F0200033B0FE /* Stocks */,
@@ -118,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				EE7A07DF2BF4EE7C0033B0FE /* SideNavigationBar.swift */,
+				EE8929B82BF8E3A600B205B5 /* VDKComboBox.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -140,6 +150,32 @@
 				F921050D2BF6558E0096EED1 /* StocksRow.swift */,
 			);
 			path = Stocks;
+			sourceTree = "<group>";
+		};
+		EE8929B42BF8E31A00B205B5 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				EE8929BC2BF8E51C00B205B5 /* Checkout */,
+				EE8929B52BF8E32E00B205B5 /* Checkin */,
+				EE8929B62BF8E36300B205B5 /* CheckInItemRow.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
+		EE8929B52BF8E32E00B205B5 /* Checkin */ = {
+			isa = PBXGroup;
+			children = (
+				EE8929BA2BF8E40C00B205B5 /* CheckinForm.swift */,
+			);
+			path = Checkin;
+			sourceTree = "<group>";
+		};
+		EE8929BC2BF8E51C00B205B5 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				EE8929BD2BF8E53100B205B5 /* CheckoutForm.swift */,
+			);
+			path = Checkout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,13 +249,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				04C8E6112BF5E209006A77CD /* HistoryList.swift in Sources */,
+				EE8929BE2BF8E53100B205B5 /* CheckoutForm.swift in Sources */,
 				EE7A07E02BF4EE7C0033B0FE /* SideNavigationBar.swift in Sources */,
 				04BE24942BF4CBF5005CBF2C /* ContentView.swift in Sources */,
 				EE7A07E42BF4EF470033B0FE /* View.swift in Sources */,
 				04BE24962BF4CBF5005CBF2C /* Item.swift in Sources */,
+				EE8929BB2BF8E40C00B205B5 /* CheckinForm.swift in Sources */,
 				F921050E2BF6558E0096EED1 /* StocksRow.swift in Sources */,
 				04B61C902BF63FF900331A1A /* Product.swift in Sources */,
+				EE8929B72BF8E36300B205B5 /* CheckInItemRow.swift in Sources */,
 				04C8E6192BF5E6F2006A77CD /* ActivityDetail.swift in Sources */,
+				EE8929B92BF8E3A600B205B5 /* VDKComboBox.swift in Sources */,
 				04C8E61D2BF5E72B006A77CD /* ActivityItemRow.swift in Sources */,
 				04C8E6132BF5E257006A77CD /* HistoryRow.swift in Sources */,
 				EE7A07E72BF4F04F0033B0FE /* StocksList.swift in Sources */,
