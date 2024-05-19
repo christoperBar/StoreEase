@@ -14,6 +14,7 @@ struct StocksList: View {
     @State private var isShowingSheet = false
     @State private var isShowingUpdateSheet = false
 //    private var products = modelData.products
+    @State private var selectedSheet: Int = 0
     
     var body: some View {
         List() {
@@ -24,19 +25,20 @@ struct StocksList: View {
                 Text("Stocks")
             }.padding(.horizontal)
             ){
-                ForEach(modelData.products) { product in
+                ForEach(Array(modelData.products.enumerated()), id: \.offset) { index,product in
                     if !searchItem.isEmpty{
                         if(product.name.lowercased()).contains(searchItem.lowercased()){
                             StocksRow(product: product)
                                 .contextMenu {
                                         Button(action: {
                                             isShowingUpdateSheet.toggle()
+                                            selectedSheet = index
                                         }) {
                                             Text("Update")
                                         }
                                     
                                         Button {
-                                            
+                                            modelData.products.remove(at: index)
                                         } label: {
                                             Text("Delete")
                                         }
@@ -48,12 +50,13 @@ struct StocksList: View {
                             .contextMenu {
                                     Button(action: {
                                         isShowingUpdateSheet.toggle()
+                                        selectedSheet = index
                                     }) {
                                         Text("Update")
                                     }
 
                                     Button {
-                                        
+                                        modelData.products.remove(at: index)
                                     } label: {
                                         Text("Delete")
                                     }
@@ -64,7 +67,8 @@ struct StocksList: View {
         }.sheet(isPresented: $isShowingUpdateSheet,
                 onDismiss: {isShowingUpdateSheet = false}) {
              StockSheet("Update Product",refProduct: $productName, onSubmit: {
-                 
+                 modelData.products[selectedSheet].name = productName
+                 isShowingUpdateSheet = false
              }){
                  isShowingUpdateSheet = false
              }
@@ -92,7 +96,9 @@ struct StocksList: View {
                 .sheet(isPresented: $isShowingSheet,
                        onDismiss: {isShowingSheet = false}) {
                     StockSheet("Add Product",refProduct: $productName, onSubmit: {
-                        
+                        let newProduct = Product(name: productName)
+                        modelData.products.append(newProduct)
+                        isShowingSheet = false
                     }){
                         isShowingSheet = false
                     }

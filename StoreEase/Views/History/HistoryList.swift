@@ -13,7 +13,7 @@ struct HistoryList: View {
     @State private var dateFilter = Date()
     @State private var filter = FilterActivity.all
     @State private var inspectorIsShown: Bool = false
-    @State private var activityId: Int = -1
+    @State private var activityId: String = ""
 //    @State private var selectedActivity: Activity?
     
 //    var activity: Activity
@@ -89,7 +89,7 @@ struct HistoryList: View {
     }
 }
 
-func getActivityById(id: Int?) -> Activity? {
+func getActivityById(id: String?) -> Activity? {
     guard let id = id else { return nil }
     return activities.first { $0.id == id }
 }
