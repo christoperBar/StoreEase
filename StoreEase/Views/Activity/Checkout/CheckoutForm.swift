@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct CheckoutForm: View {
+    @Environment(ModelData.self) var modelData
     @State private var items: Product?
     @State private var searchItem: String = ""
     
     @State private var selectedItems: [Product] = []
-    @State private var checkinItems: [[ActivityItem]] = []
+    @State private var checkinItems: [AddedProduct] = []
     
     func setSelectedItem(newItem:Product) -> Void {
         selectedItems.append(newItem)
@@ -50,7 +51,9 @@ struct CheckoutForm: View {
                     VStack(alignment:.leading){
                         Section(header: Text("Items")){
                             ForEach(selectedItems){ item in
-                                CheckInItemRow(item.name)
+                                CheckInItemRow(item.name, removeItem: {}){
+                                    qty in
+                                }
                                     .onAppear{}
                             }
                         }
@@ -70,4 +73,5 @@ struct CheckoutForm: View {
 
 #Preview {
     CheckoutForm()
+        .environment(ModelData())
 }
