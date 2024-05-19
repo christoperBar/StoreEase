@@ -26,6 +26,7 @@ struct StoreEaseApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(ModelData())
         }
         .modelContainer(sharedModelContainer)
     }
