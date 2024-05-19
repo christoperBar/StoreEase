@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct StocksList: View {
+    @Environment(ModelData.self) var modelData
     @State private var searchItem: String = ""
     @State private var productName: String = ""
     @State private var isShowingSheet = false
     @State private var isShowingUpdateSheet = false
+//    private var products = modelData.products
     
     var body: some View {
         List() {
@@ -22,7 +24,7 @@ struct StocksList: View {
                 Text("Stocks")
             }.padding(.horizontal)
             ){
-                ForEach(products) { product in
+                ForEach(modelData.products) { product in
                     if !searchItem.isEmpty{
                         if(product.name.lowercased()).contains(searchItem.lowercased()){
                             StocksRow(product: product)
@@ -70,7 +72,7 @@ struct StocksList: View {
         
         .searchable(text: $searchItem)
         .searchSuggestions{
-            ForEach(products){ item in
+            ForEach(modelData.products){ item in
                 if(item.name.lowercased()).contains(searchItem.lowercased()){
                     Button(action: {searchItem = item.name}) {
                         Label(item.name, systemImage: "")
@@ -104,4 +106,5 @@ struct StocksList: View {
 
 #Preview("Stocks"){
     StocksList()
+        .environment(ModelData())
 }

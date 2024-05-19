@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HistoryList: View {
-    
+    @Environment(ModelData.self) var modelData
 //    @State private var searchText = ""
     @State private var dateFilter = Date()
     @State private var filter = FilterActivity.all
@@ -96,4 +96,5 @@ func getActivityById(id: Int?) -> Activity? {
 
 #Preview {
     HistoryList()
+        .environment(ModelData())
 }

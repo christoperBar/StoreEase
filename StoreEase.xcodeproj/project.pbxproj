@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0427C05F2BF8E9D6002AF1F3 /* StockSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0427C05E2BF8E9D6002AF1F3 /* StockSheet.swift */; };
+		047399AA2BFA4D3E000471C3 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047399A92BFA4D3E000471C3 /* ModelData.swift */; };
 		04B61C8E2BF63B8800331A1A /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B61C8D2BF63B8800331A1A /* Activity.swift */; };
 		04B61C902BF63FF900331A1A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B61C8F2BF63FF900331A1A /* Product.swift */; };
 		04BE24922BF4CBF5005CBF2C /* StoreEaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE24912BF4CBF5005CBF2C /* StoreEaseApp.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		0427C05E2BF8E9D6002AF1F3 /* StockSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSheet.swift; sourceTree = "<group>"; };
+		047399A92BFA4D3E000471C3 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		04B61C8D2BF63B8800331A1A /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		04B61C8F2BF63FF900331A1A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		04BE248E2BF4CBF5005CBF2C /* StoreEase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreEase.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,8 +118,8 @@
 		EE7A07DD2BF4EE430033B0FE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				EE8929B42BF8E31A00B205B5 /* Activity */,
 				04BE24932BF4CBF5005CBF2C /* ContentView.swift */,
+				EE8929B42BF8E31A00B205B5 /* Activity */,
 				04C8E60F2BF5E1AB006A77CD /* History */,
 				EE7A07E52BF4F0200033B0FE /* Stocks */,
 				EE7A07DE2BF4EE4E0033B0FE /* Helper */,
@@ -141,6 +143,7 @@
 				04B61C8F2BF63FF900331A1A /* Product.swift */,
 				04BE24952BF4CBF5005CBF2C /* Item.swift */,
 				EE7A07E32BF4EF470033B0FE /* View.swift */,
+				047399A92BFA4D3E000471C3 /* ModelData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,9 +161,9 @@
 		EE8929B42BF8E31A00B205B5 /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				EE8929B62BF8E36300B205B5 /* CheckInItemRow.swift */,
 				EE8929BC2BF8E51C00B205B5 /* Checkout */,
 				EE8929B52BF8E32E00B205B5 /* Checkin */,
-				EE8929B62BF8E36300B205B5 /* CheckInItemRow.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 			files = (
 				04C8E6112BF5E209006A77CD /* HistoryList.swift in Sources */,
 				EE8929BE2BF8E53100B205B5 /* CheckoutForm.swift in Sources */,
+				047399AA2BFA4D3E000471C3 /* ModelData.swift in Sources */,
 				EE7A07E02BF4EE7C0033B0FE /* SideNavigationBar.swift in Sources */,
 				04BE24942BF4CBF5005CBF2C /* ContentView.swift in Sources */,
 				EE7A07E42BF4EF470033B0FE /* View.swift in Sources */,

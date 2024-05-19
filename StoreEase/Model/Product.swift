@@ -11,6 +11,9 @@ struct Product: Hashable, Identifiable, Codable {
     var id: Int
     var name: String
     var stocks: Int
+    
+    
+    
 }
 
 var products:[Product] = [
