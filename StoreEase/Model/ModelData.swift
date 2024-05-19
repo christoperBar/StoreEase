@@ -10,7 +10,7 @@ import Foundation
 @Observable
 class ModelData {
     var products:[Product] = [
-        Product(id:1, name:"Surya 12", stocks: 4),
+        Product(id:1, name:"Sorya 12", stocks: 4),
         Product(id:2, name:"Tali Jagat", stocks: 7),
         Product(id:3, name:"Sampoerna", stocks: 9),
         Product(id:4, name:"Djisamsoe", stocks: 2),
@@ -25,8 +25,8 @@ class ModelData {
         Product(id:13, name:"Lucky Strike", stocks: 19)
     ]
     var activities:[Activity] = [
-        Activity(id: 1, type: .checkIn, date: makeDate(year: 2024, month: 3, day: 23, hour: 12, minute: 43, second: 44 ), listOfAddedProduct: [
-            AddedProduct(id: 1, product: Product(id:2, name:"Surya 12", stocks: 4), qty: 5),
+        Activity(id: 1, type: .checkIn, date: makeDate(year: 2024, month: 3, day: 24, hour: 12, minute: 43, second: 44 ), listOfAddedProduct: [
+            AddedProduct(id: 1, product: Product(id:1, name:"Sorya 12", stocks: 4), qty: 5),
             AddedProduct(id: 2, product: Product(id:2, name:"Tali Jagat", stocks: 7), qty: 3)
         ]),
         Activity(id: 2, type: .checkOut, date: Date(), listOfAddedProduct: [
