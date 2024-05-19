@@ -9,14 +9,16 @@ import SwiftUI
 
 struct HistoryList: View {
     @Environment(ModelData.self) var modelData
-//    @State private var searchText = ""
     @State private var dateFilter = Date()
     @State private var filter = FilterActivity.all
     @State private var inspectorIsShown: Bool = false
     @State private var activityId: String = ""
-//    @State private var selectedActivity: Activity?
+
     
-//    var activity: Activity
+    func getActivityById(id: String?) -> Activity? {
+        guard let id = id else { return nil }
+        return modelData.activities.first { $0.id == id }
+    }
     
     enum FilterActivity: String, CaseIterable, Identifiable {
         case all = "All"
@@ -27,20 +29,15 @@ struct HistoryList: View {
     }
     
     var filteredHistory: [Activity] {
-        activities.filter { activity in
+        modelData.activities.filter { activity in
             let matchesType = filter == .all || filter.rawValue == activity.type.rawValue
             let matchesDate = Calendar.current.isDate(activity.date, equalTo: dateFilter, toGranularity: .day)
             return matchesType && matchesDate
         }
     }
     
-//    var index: Int? {
-//        activities.firstIndex(where: { $0.id == selectedActivity?.id })
-//    }
     
     var body: some View {
-        
-//        List(selection: $selectedActivity){
         List(){
             DatePicker("Date", selection: $dateFilter, displayedComponents: .date)
                 .datePickerStyle(.compact)
@@ -52,9 +49,7 @@ struct HistoryList: View {
                         activityId = activity.id
                     }
             }
-//            .focusedValue(\.selectedActivity, activities[index ?? 0])
         }
-        
         .frame(minWidth: 100)
         .navigationTitle("History")
         .toolbar {
@@ -85,14 +80,9 @@ struct HistoryList: View {
                 Text("Please select history")
             }
         }
-//        .searchable(text: $searchText, prompt: "Search")
     }
 }
 
-func getActivityById(id: String?) -> Activity? {
-    guard let id = id else { return nil }
-    return activities.first { $0.id == id }
-}
 
 #Preview {
     HistoryList()
