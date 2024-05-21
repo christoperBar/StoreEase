@@ -11,19 +11,16 @@ struct CheckoutForm: View {
     @Environment(ModelData.self) var modelData
     @State private var items: Product?
     @State private var searchItem: String = ""
-    
     @State private var selectedItems: [Product] = []
     @State private var checkinItems: [AddedProduct] = []
-    
-    func setSelectedItem(newItem:Product) -> Void {
-        selectedItems.append(newItem)
-    }
-    
     
     func selectItemOptions(items: [Product]) -> [Product] {
         var result: [Product] = []
         for item in items {
-            if !selectedItems.contains(item){
+            
+            if let index = checkinItems.firstIndex(where: { $0.product.name == item.name }){
+                continue
+            }else{
                 result.append(item)
             }
         }
@@ -32,43 +29,62 @@ struct CheckoutForm: View {
     
     var body: some View {
         VStack(){
-            Text("Checkout Items")
+            Text("CheckOut Items")
                 .font(.largeTitle)
                 .bold()
             
             Form {
                 Section{
-                    VDKComboBox(itemProducts: selectItemOptions(items: products), text: $searchItem, onSelect: {
-                        item in selectedItems.append(item);
+                    VDKComboBox(itemProducts: selectItemOptions(items: modelData.products), text: $searchItem, onSelect: {
+                        item in checkinItems.append(AddedProduct(product: item, qty: 0) );
                         searchItem = ""
                         }
                     ).frame(width: 320)
-                    Button("Confirm checkout", action: {})
+                    Button("Confirm checkin", action: {
+                        for item in checkinItems {
+                            guard let index = modelData.products.firstIndex(where: { $0.id == item.product.id }) else {
+                                continue
+                            }
+                            modelData.products[index].stocks -= item.qty
+                        }
+                        
+                        let newActivity = Activity(type: .checkOut, listOfAddedProduct: checkinItems)
+                        modelData.activities.append(newActivity)
+                        
+                        checkinItems.removeAll()
+                        selectedItems.removeAll()
+                        
+                    })
                 }
                 
                 
                 ScrollView{
                     VStack(alignment:.leading){
                         Section(header: Text("Items")){
-                            ForEach(selectedItems){ item in
-                                CheckInItemRow(item.name, removeItem: {}){
-                                    qty in
-                                }
-                                    .onAppear{}
+                            ForEach($checkinItems){$item in
+                                CheckoutItemRow(item: $item, removeItem: {
+                                    if let checkinItemIndex = checkinItems.firstIndex(where: {$0.id == item.id}){
+                                        print("OnDelete🦠 checkinItems[indexCheckin].qty")
+                                        print(checkinItems[checkinItemIndex].product.name)
+                                        print(checkinItems[checkinItemIndex].qty)
+                                        checkinItems.remove(at: checkinItemIndex)
+                                    }
+                                })
+                                    
                             }
                         }
                         .formStyle(.columns)
                     }
                 }.padding(.top)
-                
             }
         }
         .frame(maxWidth: 400, minHeight: 450,alignment: .topLeading)
-        .navigationTitle("Checkout items")
+        .navigationTitle("Checkin items")
         .padding()
         
         Spacer()
     }
+    
 }
 
 #Preview {
