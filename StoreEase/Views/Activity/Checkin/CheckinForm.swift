@@ -30,12 +30,11 @@ struct CheckinForm: View {
     
     var body: some View {
         VStack(){
-            Text("Checkin Items")
-                .font(.largeTitle)
-                .bold()
-            
+
             Form {
                 Section{
+                    Text("Choose product")
+                        .font(.callout)
                     VDKComboBox(itemProducts: selectItemOptions(items: modelData.products), text: $searchItem, onSelect: {
                         item in checkinItems.append(AddedProduct(product: item, qty: 0) );
                         searchItem = ""
