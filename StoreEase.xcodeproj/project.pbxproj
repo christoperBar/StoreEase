@@ -16,6 +16,7 @@
 		0485866D2BFCA17300B69715 /* AccountList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485866C2BFCA17300B69715 /* AccountList.swift */; };
 		0485866F2BFCA18800B69715 /* AccountRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0485866E2BFCA18800B69715 /* AccountRow.swift */; };
 		048586732BFCB39600B69715 /* AddAdminSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048586722BFCB39600B69715 /* AddAdminSheet.swift */; };
+		048586752BFCC6C700B69715 /* ResetPasswordSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048586742BFCC6C700B69715 /* ResetPasswordSheet.swift */; };
 		04B61C8E2BF63B8800331A1A /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B61C8D2BF63B8800331A1A /* Activity.swift */; };
 		04B61C902BF63FF900331A1A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B61C8F2BF63FF900331A1A /* Product.swift */; };
 		04BE24922BF4CBF5005CBF2C /* StoreEaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE24912BF4CBF5005CBF2C /* StoreEaseApp.swift */; };
@@ -48,6 +49,7 @@
 		0485866C2BFCA17300B69715 /* AccountList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountList.swift; sourceTree = "<group>"; };
 		0485866E2BFCA18800B69715 /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
 		048586722BFCB39600B69715 /* AddAdminSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAdminSheet.swift; sourceTree = "<group>"; };
+		048586742BFCC6C700B69715 /* ResetPasswordSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordSheet.swift; sourceTree = "<group>"; };
 		04B61C8D2BF63B8800331A1A /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		04B61C8F2BF63FF900331A1A /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		04BE248E2BF4CBF5005CBF2C /* StoreEase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreEase.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				0485866C2BFCA17300B69715 /* AccountList.swift */,
+				048586742BFCC6C700B69715 /* ResetPasswordSheet.swift */,
 				0485866E2BFCA18800B69715 /* AccountRow.swift */,
 				048586722BFCB39600B69715 /* AddAdminSheet.swift */,
 			);
@@ -320,6 +323,7 @@
 				EE8929B72BF8E36300B205B5 /* CheckInItemRow.swift in Sources */,
 				04C8E6192BF5E6F2006A77CD /* ActivityDetail.swift in Sources */,
 				EE8929B92BF8E3A600B205B5 /* VDKComboBox.swift in Sources */,
+				048586752BFCC6C700B69715 /* ResetPasswordSheet.swift in Sources */,
 				EE36397A2BFBA32400D8BF34 /* CheckoutItemRow.swift in Sources */,
 				04C8E61D2BF5E72B006A77CD /* ActivityItemRow.swift in Sources */,
 				04C8E6132BF5E257006A77CD /* HistoryRow.swift in Sources */,

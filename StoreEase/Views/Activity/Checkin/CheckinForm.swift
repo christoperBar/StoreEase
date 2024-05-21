@@ -48,7 +48,7 @@ struct CheckinForm: View {
                             modelData.products[index].stocks += item.qty
                         }
                         
-                        let newActivity = Activity(admin: Admin(username: "Azewt", password: "azezet"),type: .checkIn, listOfAddedProduct: checkinItems)
+                        let newActivity = Activity(admin: modelData.currentUser as! Admin,type: .checkIn, listOfAddedProduct: checkinItems)
                         modelData.activities.append(newActivity)
                         
                         checkinItems.removeAll()
@@ -63,9 +63,6 @@ struct CheckinForm: View {
                             ForEach($checkinItems){$item in
                                 CheckInItemRow(item: $item, removeItem: {
                                     if let checkinItemIndex = checkinItems.firstIndex(where: {$0.id == item.id}){
-                                        print("OnDelete🦠 checkinItems[indexCheckin].qty")
-                                        print(checkinItems[checkinItemIndex].product.name)
-                                        print(checkinItems[checkinItemIndex].qty)
                                         checkinItems.remove(at: checkinItemIndex)
                                     }
                                 })

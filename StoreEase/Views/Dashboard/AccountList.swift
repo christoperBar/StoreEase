@@ -10,8 +10,11 @@ import SwiftUI
 struct AccountList: View {
     @Environment(ModelData.self) var modelData
     @State private var isShowingSheet = false
+    @State private var isShowingUpdateSheet = false
+    @State private var selectedSheet: Int = 0
     @State private var username = ""
     @State private var password = ""
+    @State private var resetPassword = ""
 
     
     var adminUsers: [Admin] {
@@ -30,13 +33,29 @@ struct AccountList: View {
                         .contextMenu {
                             Button(action: {
                                 if let index = modelData.users.firstIndex(where: { $0.id == account.id }) {
+                                    isShowingUpdateSheet.toggle()
+                                    selectedSheet = index
+                                }
+                            }) {
+                                Text("Reset Password")
+                            }
+                            .sheet(isPresented: $isShowingUpdateSheet,
+                                    onDismiss: {isShowingUpdateSheet = false}) {
+                                 StockSheet("Update Admin",password: $resetPassword, onSubmit: {
+                                     modelData.users[selectedSheet].password = resetPassword
+                                     isShowingUpdateSheet = false
+                                 }){
+                                     isShowingUpdateSheet = false
+                                 }
+                             }
+                            Button(action: {
+                                if let index = modelData.users.firstIndex(where: { $0.id == account.id }) {
                                     modelData.users.remove(at: index)
                                 }
                             }) {
                                 Text("Delete")
                             }
                         }
-
                 }
             }
         }
