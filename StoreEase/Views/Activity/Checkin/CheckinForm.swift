@@ -15,14 +15,13 @@ struct CheckinForm: View {
     @State private var selectedItems: [Product] = []
     @State private var checkinItems: [AddedProduct] = []
     
-    func setSelectedItem(newItem:Product) -> Void {
-        selectedItems.append(newItem)
-    }
-    
     func selectItemOptions(items: [Product]) -> [Product] {
         var result: [Product] = []
         for item in items {
-            if !selectedItems.contains(item){
+            
+            if let index = checkinItems.firstIndex(where: { $0.product.name == item.name }){
+                continue
+            }else{
                 result.append(item)
             }
         }
@@ -31,14 +30,13 @@ struct CheckinForm: View {
     
     var body: some View {
         VStack(){
-            Text("Checkin Items")
-                .font(.largeTitle)
-                .bold()
-            
+
             Form {
                 Section{
+                    Text("Choose product")
+                        .font(.callout)
                     VDKComboBox(itemProducts: selectItemOptions(items: modelData.products), text: $searchItem, onSelect: {
-                        item in selectedItems.append(item);
+                        item in checkinItems.append(AddedProduct(product: item, qty: 0) );
                         searchItem = ""
                         }
                     ).frame(width: 320)
@@ -62,17 +60,16 @@ struct CheckinForm: View {
                 ScrollView{
                     VStack(alignment:.leading){
                         Section(header: Text("Items")){
-                            ForEach(Array(selectedItems.enumerated()), id: \.offset){index, item in
-                                CheckInItemRow(item.name, removeItem: {
-                                    selectedItems.remove(at: index)
-                                    checkinItems.remove(at: index)
-                                }){
-                                    qty in
-                                    checkinItems[index].qty = qty
-                                }
-                                    .onAppear{
-                                        checkinItems.append(AddedProduct(product: item, qty: 0) )
+                            ForEach($checkinItems){$item in
+                                CheckInItemRow(item: $item, removeItem: {
+                                    if let checkinItemIndex = checkinItems.firstIndex(where: {$0.id == item.id}){
+                                        print("OnDelete🦠 checkinItems[indexCheckin].qty")
+                                        print(checkinItems[checkinItemIndex].product.name)
+                                        print(checkinItems[checkinItemIndex].qty)
+                                        checkinItems.remove(at: checkinItemIndex)
                                     }
+                                })
+                                    
                             }
                         }
                         .formStyle(.columns)

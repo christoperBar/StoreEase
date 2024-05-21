@@ -11,19 +11,16 @@ struct CheckoutForm: View {
     @Environment(ModelData.self) var modelData
     @State private var items: Product?
     @State private var searchItem: String = ""
-    
     @State private var selectedItems: [Product] = []
     @State private var checkinItems: [AddedProduct] = []
-    
-    func setSelectedItem(newItem:Product) -> Void {
-        selectedItems.append(newItem)
-    }
-    
     
     func selectItemOptions(items: [Product]) -> [Product] {
         var result: [Product] = []
         for item in items {
-            if !selectedItems.contains(item){
+            
+            if let index = checkinItems.firstIndex(where: { $0.product.name == item.name }){
+                continue
+            }else{
                 result.append(item)
             }
         }
@@ -32,35 +29,38 @@ struct CheckoutForm: View {
     
     var body: some View {
         VStack(){
-            Text("Checkout Items")
-                .font(.largeTitle)
-                .bold()
             
             Form {
                 Section{
-                    VDKComboBox(itemProducts: selectItemOptions(items: products), text: $searchItem, onSelect: {
-                        item in selectedItems.append(item);
+                    Text("Choose product")
+                        .font(.callout)
+                    VDKComboBox(itemProducts: selectItemOptions(items: modelData.products), text: $searchItem, onSelect: {
+                        item in checkinItems.append(AddedProduct(product: item, qty: 0) );
                         searchItem = ""
                         }
                     ).frame(width: 320)
-                    Button("Confirm checkout", action: {})
+                    Button("Confirm checkout", action: checkoutItems)
                 }
                 
                 
                 ScrollView{
                     VStack(alignment:.leading){
                         Section(header: Text("Items")){
-                            ForEach(selectedItems){ item in
-                                CheckInItemRow(item.name, removeItem: {}){
-                                    qty in
-                                }
-                                    .onAppear{}
+                            ForEach($checkinItems){$item in
+                                CheckoutItemRow(item: $item, removeItem: {
+                                    if let checkinItemIndex = checkinItems.firstIndex(where: {$0.id == item.id}){
+                                        print("OnDelete🦠 checkinItems[indexCheckin].qty")
+                                        print(checkinItems[checkinItemIndex].product.name)
+                                        print(checkinItems[checkinItemIndex].qty)
+                                        checkinItems.remove(at: checkinItemIndex)
+                                    }
+                                })
+                                    
                             }
                         }
                         .formStyle(.columns)
                     }
                 }.padding(.top)
-                
             }
         }
         .frame(maxWidth: 400, minHeight: 450,alignment: .topLeading)
@@ -68,6 +68,31 @@ struct CheckoutForm: View {
         .padding()
         
         Spacer()
+    }
+    private func checkoutItems() -> Void {
+        for item in checkinItems {
+        
+            if item.qty < 1 {
+                guard let itemInvalidInputIndex = checkinItems.firstIndex(of: item) else {
+                    continue
+                }
+            
+                checkinItems.remove(at: itemInvalidInputIndex)
+            }
+
+            guard let index = modelData.products.firstIndex(where: { $0.id == item.product.id }) else {
+                continue
+            }
+            
+            modelData.products[index].stocks -= item.qty
+        }
+        
+        let newActivity = Activity(type: .checkOut, listOfAddedProduct: checkinItems)
+        modelData.activities.append(newActivity)
+        
+        checkinItems.removeAll()
+        selectedItems.removeAll()
+        
     }
 }
 
