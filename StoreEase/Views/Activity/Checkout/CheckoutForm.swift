@@ -29,32 +29,17 @@ struct CheckoutForm: View {
     
     var body: some View {
         VStack(){
-            Text("CheckOut Items")
-                .font(.largeTitle)
-                .bold()
             
             Form {
                 Section{
+                    Text("Choose product")
+                        .font(.callout)
                     VDKComboBox(itemProducts: selectItemOptions(items: modelData.products), text: $searchItem, onSelect: {
                         item in checkinItems.append(AddedProduct(product: item, qty: 0) );
                         searchItem = ""
                         }
                     ).frame(width: 320)
-                    Button("Confirm checkin", action: {
-                        for item in checkinItems {
-                            guard let index = modelData.products.firstIndex(where: { $0.id == item.product.id }) else {
-                                continue
-                            }
-                            modelData.products[index].stocks -= item.qty
-                        }
-                        
-                        let newActivity = Activity(type: .checkOut, listOfAddedProduct: checkinItems)
-                        modelData.activities.append(newActivity)
-                        
-                        checkinItems.removeAll()
-                        selectedItems.removeAll()
-                        
-                    })
+                    Button("Confirm checkout", action: checkoutItems)
                 }
                 
                 
@@ -79,12 +64,36 @@ struct CheckoutForm: View {
             }
         }
         .frame(maxWidth: 400, minHeight: 450,alignment: .topLeading)
-        .navigationTitle("Checkin items")
+        .navigationTitle("Checkout items")
         .padding()
         
         Spacer()
     }
-    
+    private func checkoutItems() -> Void {
+        for item in checkinItems {
+        
+            if item.qty < 1 {
+                guard let itemInvalidInputIndex = checkinItems.firstIndex(of: item) else {
+                    continue
+                }
+            
+                checkinItems.remove(at: itemInvalidInputIndex)
+            }
+
+            guard let index = modelData.products.firstIndex(where: { $0.id == item.product.id }) else {
+                continue
+            }
+            
+            modelData.products[index].stocks -= item.qty
+        }
+        
+        let newActivity = Activity(type: .checkOut, listOfAddedProduct: checkinItems)
+        modelData.activities.append(newActivity)
+        
+        checkinItems.removeAll()
+        selectedItems.removeAll()
+        
+    }
 }
 
 #Preview {

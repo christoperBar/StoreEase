@@ -27,9 +27,10 @@ struct CheckoutItemRow: View {
     var body: some View {
         HStack{
             TextField( value: $item.qty.onChange({ val in
-                if val > item.product.stocks {
+                if val > item.product.stocks || val < 0 {
                     item.qty = 0
                 }
+                
             }), format: .number){
                 Text("\(item.product.name): \(item.product.stocks)")
                     .frame(width: 150,alignment: .leading)
