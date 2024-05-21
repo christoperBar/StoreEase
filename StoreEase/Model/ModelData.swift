@@ -9,8 +9,15 @@ import Foundation
 
 @Observable
 class ModelData {
+    var currentUser: (any User)? = nil
+    
+    var users:[any User] = [
+        Root(username: "Tefer", password: "Tefer123"),
+        Admin(username: "Jerry", password: "jejer"),
+        Admin(username: "Azewt", password: "azezet")
+    ]
+    
     var products:[Product] = [
-
         Product(name:"Surya 12", stocks: 4),
         Product(name:"Tali Jagat", stocks: 7),
         Product(name:"Sampoerna", stocks: 9),
@@ -24,17 +31,14 @@ class ModelData {
         Product(name:"92 Kretek", stocks: 16),
         Product(name:"Gajah Baru", stocks: 5),
         Product(name:"Lucky Strike", stocks: 19)
-
     ]
    
     var activities:[Activity] = [
-
-        Activity(type: .checkIn, date: makeDate(year: 2024, month: 3, day: 24, hour: 12, minute: 43, second: 44 ), listOfAddedProduct: [
+        Activity(admin: Admin(username: "Jerry", password: "jejer"), type: .checkIn, date: makeDate(year: 2024, month: 3, day: 24, hour: 12, minute: 43, second: 44 ), listOfAddedProduct: [
             AddedProduct(product: Product(name:"Surya 12", stocks: 4), qty: 5),
             AddedProduct(product: Product(name:"Tali Jagat", stocks: 7), qty: 3)
-
         ]),
-        Activity(type: .checkOut, date: Date(), listOfAddedProduct: [
+        Activity(admin: Admin(username: "Azewt", password: "azezet"), type: .checkOut, date: Date(), listOfAddedProduct: [
             AddedProduct(product: Product(name:"Djisamsoe", stocks: 2), qty: 1),
             AddedProduct(product: Product(name:"Malboro", stocks: 3), qty: 2)
         ])

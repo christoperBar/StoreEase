@@ -9,6 +9,7 @@ import Foundation
 
 struct Activity: Hashable, Identifiable, Codable {
     var id: String = UUID().uuidString
+    let admin: Admin
     var type: ActivityType
     var date: Date = Date()
     var listOfAddedProduct: [AddedProduct]
@@ -45,11 +46,11 @@ func makeDate(year: Int, month: Int, day: Int, hour: Int = 0, minute: Int = 0, s
 }
 
 var activities:[Activity] = [
-    Activity(type: .checkIn, date: makeDate(year: 2024, month: 3, day: 23, hour: 12, minute: 43, second: 44 ), listOfAddedProduct: [
+    Activity(admin: Admin(username: "Jerry", password: "jejer"), type: .checkIn, date: makeDate(year: 2024, month: 3, day: 23, hour: 12, minute: 43, second: 44 ), listOfAddedProduct: [
         AddedProduct(product: Product(name:"Surya 12", stocks: 4), qty: 5),
         AddedProduct(product: Product(name:"Tali Jagat", stocks: 7), qty: 3)
     ]),
-    Activity(type: .checkOut, date: Date(), listOfAddedProduct: [
+    Activity(admin: Admin(username: "Azewt", password: "azezet"), type: .checkOut, date: Date(), listOfAddedProduct: [
         AddedProduct(product: Product(name:"Djisamsoe", stocks: 2), qty: 1),
         AddedProduct(product: Product(name:"Malboro", stocks: 3), qty: 2)
     ])

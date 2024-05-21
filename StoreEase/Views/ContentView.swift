@@ -9,11 +9,19 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @Environment(ModelData.self) var modelData
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
 
     var body: some View {
-       SideNavigationBar()
+        if modelData.currentUser is Root {
+            AccountList()
+        }else if modelData.currentUser is Admin {
+            SideNavigationBar()
+        }else {
+            LoginForm()
+        }
+
     }
 
     private func addItem() {

@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct SideNavigationBar: View {
+    @Environment(ModelData.self) var modelData
     @State var currentNavigatedView: ViewList?
     @State var title = "Stocks"
     var setTitle: (String) -> String = { currentView in
@@ -50,8 +51,10 @@ struct SideNavigationBar: View {
             .navigationSplitViewColumnWidth(min: 180, ideal: 200)
             .toolbar {
                 ToolbarItem {
-                    Button(action: {}) {
-                        Label("Add Item", systemImage: "rectangle.portrait.and.arrow.right")
+                    Button(action: {
+                        modelData.currentUser = nil
+                    }) {
+                        Label("", systemImage: "rectangle.portrait.and.arrow.right")
                     }
                 }
             }
@@ -63,4 +66,5 @@ struct SideNavigationBar: View {
 
 #Preview {
     SideNavigationBar()
+        .environment(ModelData())
 }
