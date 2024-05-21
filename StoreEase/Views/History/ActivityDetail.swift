@@ -19,7 +19,7 @@ struct ActivityDetail: View {
                     Text("Admin")
                         .font(.body)
                     Spacer()
-                    Text("Wuwung")
+                    Text(activity.admin.username)
                         .font(.body)
                         .foregroundStyle(.secondary)
                 }.padding(.vertical, 3)

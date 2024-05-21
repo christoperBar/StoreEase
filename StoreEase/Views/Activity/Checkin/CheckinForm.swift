@@ -50,7 +50,7 @@ struct CheckinForm: View {
                             modelData.products[index].stocks += item.qty
                         }
                         
-                        let newActivity = Activity(type: .checkIn, listOfAddedProduct: checkinItems)
+                        let newActivity = Activity(admin: Admin(username: "Azewt", password: "azezet"),type: .checkIn, listOfAddedProduct: checkinItems)
                         modelData.activities.append(newActivity)
                         
                         checkinItems.removeAll()

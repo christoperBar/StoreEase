@@ -13,7 +13,6 @@ struct StocksList: View {
     @State private var productName: String = ""
     @State private var isShowingSheet = false
     @State private var isShowingUpdateSheet = false
-//    private var products = modelData.products
     @State private var selectedSheet: Int = 0
     
     var body: some View {
