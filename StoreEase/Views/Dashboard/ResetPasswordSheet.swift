@@ -12,7 +12,7 @@ struct ResetPasswordSheet: View {
     let password : Binding<String>
     let onSubmit: () -> Void
     let onDismiss: () -> Void
-    init(_ title: String, username: Binding<String>, password: Binding<String>, onSubmit: @escaping () -> Void, onDismiss: @escaping () -> Void) {
+    init(_ title: String, password: Binding<String>, onSubmit: @escaping () -> Void, onDismiss: @escaping () -> Void) {
         self.title = title
         self.password = password
         self.onSubmit = onSubmit

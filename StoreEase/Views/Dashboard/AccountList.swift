@@ -36,18 +36,11 @@ struct AccountList: View {
                                     isShowingUpdateSheet.toggle()
                                     selectedSheet = index
                                 }
+                                
                             }) {
                                 Text("Reset Password")
                             }
-                            .sheet(isPresented: $isShowingUpdateSheet,
-                                    onDismiss: {isShowingUpdateSheet = false}) {
-                                 StockSheet("Update Admin",password: $resetPassword, onSubmit: {
-                                     modelData.users[selectedSheet].password = resetPassword
-                                     isShowingUpdateSheet = false
-                                 }){
-                                     isShowingUpdateSheet = false
-                                 }
-                             }
+
                             Button(action: {
                                 if let index = modelData.users.firstIndex(where: { $0.id == account.id }) {
                                     modelData.users.remove(at: index)
@@ -59,6 +52,15 @@ struct AccountList: View {
                 }
             }
         }
+        .sheet(isPresented: $isShowingUpdateSheet,
+                onDismiss: {isShowingUpdateSheet = false}) {
+             ResetPasswordSheet("Update Admin",password: $resetPassword, onSubmit: {
+                 modelData.users[selectedSheet].password = resetPassword
+                 isShowingUpdateSheet = false
+             }){
+                 isShowingUpdateSheet = false
+             }
+         }
         .navigationTitle("Stocks")
         .toolbar {
             ToolbarItemGroup {
@@ -77,6 +79,11 @@ struct AccountList: View {
                          isShowingSheet = false
                      }
                  }
+                Button(action: {
+                    modelData.currentUser = nil
+                }) {
+                    Label("", systemImage: "rectangle.portrait.and.arrow.right")
+                }
             }
         }
     }
