@@ -11,13 +11,5 @@ import Foundation
 class ModelData {
     var currentUser: (any User)? = nil
     
-    var users:[any User] = [
-        Root(username: "Tefer", password: "Tefer123"),
-        Admin(username: "Jerry", password: "jejer"),
-        Admin(username: "Azewt", password: "azezet")
-    ]
-    
-   
-    
 }
 
