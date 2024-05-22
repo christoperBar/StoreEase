@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftData
 
-protocol User: Hashable, Identifiable, Codable{
+protocol User{
     var id: String { get }
     var username: String { get set }
     var password: String { get set }
@@ -20,11 +21,5 @@ enum UserRole {
     case admin
     case root
 }
-
-var users:[any User] = [
-    Root(username: "Tefer", password: "Tefer123"),
-    Admin(username: "Jerry", password: "jejer"),
-    Admin(username: "Azewt", password: "azezet")
-]
 
 

@@ -6,20 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct AccountList: View {
     @Environment(ModelData.self) var modelData
+    @Environment(\.modelContext) private var context
     @State private var isShowingSheet = false
     @State private var isShowingUpdateSheet = false
     @State private var selectedSheet: Int = 0
     @State private var username = ""
     @State private var password = ""
     @State private var resetPassword = ""
-
-    
-    var adminUsers: [Admin] {
-         modelData.users.compactMap { $0 as? Admin }
-     }
+    @Query (sort:\Admin.username) private var admins: [Admin]
     
     var body: some View {
         List() {
@@ -28,22 +26,20 @@ struct AccountList: View {
                     .padding(.leading, 7.0)
             }.padding(.horizontal)
             ){
-                ForEach(adminUsers) { account in
+                ForEach(admins) { account in
                     AccountRow(account: account)
                         .contextMenu {
                             Button(action: {
-                                if let index = modelData.users.firstIndex(where: { $0.id == account.id }) {
+                                if let index = admins.firstIndex(where: { $0.id == account.id }) {
                                     isShowingUpdateSheet.toggle()
                                     selectedSheet = index
                                 }
-                                
                             }) {
                                 Text("Reset Password")
                             }
-
                             Button(action: {
                                 if let index = modelData.users.firstIndex(where: { $0.id == account.id }) {
-                                    modelData.users.remove(at: index)
+                                    context.delete(account)
                                 }
                             }) {
                                 Text("Delete")
@@ -55,7 +51,7 @@ struct AccountList: View {
         .sheet(isPresented: $isShowingUpdateSheet,
                 onDismiss: {isShowingUpdateSheet = false}) {
              ResetPasswordSheet("Update Admin",password: $resetPassword, onSubmit: {
-                 modelData.users[selectedSheet].password = resetPassword
+                 admins[selectedSheet].password = resetPassword
                  isShowingUpdateSheet = false
              }){
                  isShowingUpdateSheet = false
@@ -73,7 +69,7 @@ struct AccountList: View {
                         onDismiss: {isShowingSheet = false}) {
                     AddAdminSheet("Add Admin", username: $username, password: $password, onSubmit: {
                         let newAccount = Admin(username: username, password: password)
-                         modelData.users.append(newAccount)
+                        context.insert(newAccount)
                          isShowingSheet = false
                      }){
                          isShowingSheet = false

@@ -11,13 +11,9 @@ import Foundation
 class ModelData {
     var currentUser: (any User)? = nil
     
-    var users:[any User] = [
-        Root(username: "Tefer", password: "Tefer123"),
-        Admin(username: "Jerry", password: "jejer"),
-        Admin(username: "Azewt", password: "azezet")
-    ]
+    var users:[any User] = [Root(username: "Tefer", password: "Tefer123")]
     
-    var products:[Product] = [
+    var  products:[Product] = [
         Product(name:"Surya 12", stocks: 4),
         Product(name:"Tali Jagat", stocks: 7),
         Product(name:"Sampoerna", stocks: 9),
