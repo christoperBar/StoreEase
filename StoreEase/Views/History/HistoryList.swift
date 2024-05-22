@@ -6,18 +6,20 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct HistoryList: View {
-    @Environment(ModelData.self) var modelData
     @State private var dateFilter = Date()
     @State private var filter = FilterActivity.all
     @State private var inspectorIsShown: Bool = false
     @State private var activityId: String = ""
-
+    
+    @Environment(\.modelContext) private var context
+    @Query private var activities: [Activity]
     
     func getActivityById(id: String?) -> Activity? {
         guard let id = id else { return nil }
-        return modelData.activities.first { $0.id == id }
+        return activities.first { $0.id == id }
     }
     
     enum FilterActivity: String, CaseIterable, Identifiable {
@@ -29,7 +31,7 @@ struct HistoryList: View {
     }
     
     var filteredHistory: [Activity] {
-        modelData.activities.filter { activity in
+        activities.filter { activity in
             let matchesType = filter == .all || filter.rawValue == activity.type.rawValue
             let matchesDate = Calendar.current.isDate(activity.date, equalTo: dateFilter, toGranularity: .day)
             return matchesType && matchesDate
@@ -86,5 +88,4 @@ struct HistoryList: View {
 
 #Preview {
     HistoryList()
-        .environment(ModelData())
 }

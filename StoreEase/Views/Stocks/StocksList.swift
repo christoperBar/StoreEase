@@ -6,14 +6,17 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct StocksList: View {
-    @Environment(ModelData.self) var modelData
     @State private var searchItem: String = ""
     @State private var productName: String = ""
     @State private var isShowingSheet = false
     @State private var isShowingUpdateSheet = false
     @State private var selectedSheet: Int = 0
+    
+    @Environment(\.modelContext) private var context
+    @Query(sort:\Product.name) private var products: [Product]
     
     var body: some View {
         List() {
@@ -24,7 +27,7 @@ struct StocksList: View {
                 Text("Stocks")
             }.padding(.horizontal)
             ){
-                ForEach(Array(modelData.products.enumerated()), id: \.offset) { index,product in
+                ForEach(Array(products.enumerated()), id: \.offset) { index,product in
                     if !searchItem.isEmpty{
                         if(product.name.lowercased()).contains(searchItem.lowercased()){
                             StocksRow(product: product)
@@ -37,7 +40,7 @@ struct StocksList: View {
                                         }
                                     
                                         Button {
-                                            modelData.products.remove(at: index)
+                                            context.delete(product)
                                         } label: {
                                             Text("Delete")
                                         }
@@ -55,7 +58,7 @@ struct StocksList: View {
                                     }
 
                                     Button {
-                                        modelData.products.remove(at: index)
+                                        context.delete(product)
                                     } label: {
                                         Text("Delete")
                                     }
@@ -66,7 +69,7 @@ struct StocksList: View {
         }.sheet(isPresented: $isShowingUpdateSheet,
                 onDismiss: {isShowingUpdateSheet = false}) {
              StockSheet("Update Product",refProduct: $productName, onSubmit: {
-                 modelData.products[selectedSheet].name = productName
+                 products[selectedSheet].name = productName
                  isShowingUpdateSheet = false
              }){
                  isShowingUpdateSheet = false
@@ -75,7 +78,7 @@ struct StocksList: View {
         
         .searchable(text: $searchItem)
         .searchSuggestions{
-            ForEach(modelData.products){ item in
+            ForEach(products){ item in
                 if(item.name.lowercased()).contains(searchItem.lowercased()){
                     Button(action: {searchItem = item.name}) {
                         Label(item.name, systemImage: "")
@@ -96,7 +99,7 @@ struct StocksList: View {
                        onDismiss: {isShowingSheet = false}) {
                     StockSheet("Add Product",refProduct: $productName, onSubmit: {
                         let newProduct = Product(name: productName)
-                        modelData.products.append(newProduct)
+                        context.insert(newProduct)
                         isShowingSheet = false
                     }){
                         isShowingSheet = false
@@ -111,5 +114,4 @@ struct StocksList: View {
 
 #Preview("Stocks"){
     StocksList()
-        .environment(ModelData())
 }

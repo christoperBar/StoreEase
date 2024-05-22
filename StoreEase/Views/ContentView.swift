@@ -11,17 +11,22 @@ import SwiftData
 struct ContentView: View {
     @Environment(ModelData.self) var modelData
     @Environment(\.modelContext) private var modelContext
+    @Query private var roots: [Root]
     @Query private var items: [Item]
 
     var body: some View {
-        if modelData.currentUser is Root {
-            AccountList()
-        }else if modelData.currentUser is Admin {
-            SideNavigationBar()
-        }else {
-            LoginForm()
+        if roots.isEmpty {
+            RegisterRootForm()
         }
-
+        else{
+            if modelData.currentUser is Root {
+                AccountList()
+            }else if modelData.currentUser is Admin {
+                SideNavigationBar()
+            }else {
+                LoginForm()
+            }
+        }
     }
 
     private func addItem() {

@@ -30,10 +30,3 @@ struct HistoryRow: View {
     }
 }
 
-#Preview {
-    return Group {
-        HistoryRow(activity: activities[0])
-        HistoryRow(activity: activities[1])
-    }
-    
-}

@@ -1,26 +1,30 @@
 //
-//  LoginForm.swift
+//  RegisterRootForm.swift
 //  StoreEase
 //
-//  Created by MacBook Pro on 21/05/24.
+//  Created by MacBook Pro on 22/05/24.
 //
 
 import SwiftUI
 
-struct LoginForm: View {
+struct RegisterRootForm: View {
     @Environment(ModelData.self) var modelData
+    @Environment(\.modelContext) private var context
     @State var username: String = ""
     @State var password: String = ""
     @State var isShowingAlert: Bool = false
     @State var alertMessage: String = ""
+    @State var isAgree: Bool = false
     
     var body: some View {
         VStack(){
-            VStack {
-               Text("Login")
-                   .font(.largeTitle)
-                   .padding(.bottom, 40)
-
+            Text("Root Register")
+                .font(.largeTitle)
+                .padding(.bottom, 40)
+            
+            VStack(alignment: .leading) {
+               
+    
                TextField("Username", text: $username)
                    .textFieldStyle(RoundedBorderTextFieldStyle())
                    .padding(.bottom, 5)
@@ -28,29 +32,27 @@ struct LoginForm: View {
                SecureField("Password", text: $password)
                    .textFieldStyle(RoundedBorderTextFieldStyle())
                    .padding(.bottom, 20)
-
+                
+                Toggle(isOn: $isAgree) {
+                    Text("You can't change your password, so make sure you remember your password")
+                        .font(.body)
+                }
+                .toggleStyle(.checkbox)
+                .padding(.bottom, 10)
+                
                Button(action: {
                    if username.isEmpty || password.isEmpty {
                        alertMessage = "Please enter both username and password"
                        isShowingAlert = true
                    } else {
-                       if var user = modelData.users.first(where: { $0.username == username }){
-                           if user.isMatched(username: username, password: password){
-                               modelData.currentUser = user
-                           }
-                           else{
-                               alertMessage = "Invalid password"
-                               isShowingAlert = true
-                           }
-                       }
-                       else{
-                           alertMessage = "Username not found"
-                           isShowingAlert = true
-                       }
+                       let newAccount = Root(username: username, password: password)
+                       modelData.currentUser = newAccount
+                       context.insert(newAccount)
+                       
                    }
-               }) {
-                   Text("Login")
-               }
+               }){
+                   Text("Register")
+               }.disabled(!isAgree)
                .alert(isPresented: $isShowingAlert) {
                    Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
                }
@@ -66,6 +68,5 @@ struct LoginForm: View {
 }
 
 #Preview {
-    LoginForm()
-        .environment(ModelData())
+    RegisterRootForm()
 }

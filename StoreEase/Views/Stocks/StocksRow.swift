@@ -25,10 +25,3 @@ struct StocksRow: View {
         .padding(.vertical, 6)
     }
 }
-
-#Preview {
-    Group {
-        StocksRow(product: products[0])
-        StocksRow(product: products[1])
-    }
-}

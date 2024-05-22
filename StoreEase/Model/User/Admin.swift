@@ -6,11 +6,19 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Admin: User{
-    var id: String = UUID().uuidString
+@Model
+class Admin: User{
+    var id: String
     var username: String
     var password: String
+    
+    init(username: String, password: String) {
+        self.id = UUID().uuidString
+        self.username = username
+        self.password = password
+    }
     
     func displayRole() -> String {
         return "Admin"

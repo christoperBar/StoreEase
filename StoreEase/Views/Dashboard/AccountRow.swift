@@ -24,7 +24,3 @@ struct AccountRow: View {
         .padding(.vertical, 6)
     }
 }
-
-#Preview {
-    AccountRow(account: users[1] as! Admin)
-}
