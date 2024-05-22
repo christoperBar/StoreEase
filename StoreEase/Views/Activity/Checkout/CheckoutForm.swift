@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct CheckoutForm: View {
     @Environment(ModelData.self) var modelData
@@ -13,6 +14,10 @@ struct CheckoutForm: View {
     @State private var searchItem: String = ""
     @State private var selectedItems: [Product] = []
     @State private var checkinItems: [AddedProduct] = []
+    
+    @Environment(\.modelContext) private var context
+    @Query private var products: [Product]
+    
     
     func selectItemOptions(items: [Product]) -> [Product] {
         var result: [Product] = []
@@ -34,8 +39,8 @@ struct CheckoutForm: View {
                 Section{
                     Text("Choose product")
                         .font(.callout)
-                    VDKComboBox(itemProducts: selectItemOptions(items: modelData.products), text: $searchItem, onSelect: {
-                        item in checkinItems.append(AddedProduct(product: item, qty: 0) );
+                    VDKComboBox(itemProducts: selectItemOptions(items: products), text: $searchItem, onSelect: {
+                        item in checkinItems.append(AddedProduct(product: ActivityProduct(convert: item), qty: 0) );
                         searchItem = ""
                         }
                     ).frame(width: 320)
@@ -77,11 +82,11 @@ struct CheckoutForm: View {
                 checkinItems.remove(at: itemInvalidInputIndex)
             }
 
-            guard let index = modelData.products.firstIndex(where: { $0.id == item.product.id }) else {
+            guard let index = products.firstIndex(where: { $0.id == item.product.id }) else {
                 continue
             }
             
-            modelData.products[index].stocks -= item.qty
+            products[index].stocks -= item.qty
         }
         
         let newActivity = Activity(admin: modelData.currentUser as! Admin, type: .checkOut, listOfAddedProduct: checkinItems)

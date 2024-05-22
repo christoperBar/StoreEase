@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import SwiftData
 
 struct CheckinForm: View {
     @Environment(ModelData.self) var modelData
@@ -14,6 +15,9 @@ struct CheckinForm: View {
     @State private var searchItem: String = ""
     @State private var selectedItems: [Product] = []
     @State private var checkinItems: [AddedProduct] = []
+    
+    @Environment(\.modelContext) private var context
+    @Query private var products: [Product]
     
     func selectItemOptions(items: [Product]) -> [Product] {
         var result: [Product] = []
@@ -35,26 +39,12 @@ struct CheckinForm: View {
                 Section{
                     Text("Choose product")
                         .font(.callout)
-                    VDKComboBox(itemProducts: selectItemOptions(items: modelData.products), text: $searchItem, onSelect: {
-                        item in checkinItems.append(AddedProduct(product: item, qty: 0) );
+                    VDKComboBox(itemProducts: selectItemOptions(items: products), text: $searchItem, onSelect: {
+                        item in checkinItems.append(AddedProduct(product: ActivityProduct(convert: item), qty: 0) );
                         searchItem = ""
                         }
                     ).frame(width: 320)
-                    Button("Confirm checkin", action: {
-                        for item in checkinItems {
-                            guard let index = modelData.products.firstIndex(where: { $0.id == item.product.id }) else {
-                                continue
-                            }
-                            modelData.products[index].stocks += item.qty
-                        }
-                        
-                        let newActivity = Activity(admin: modelData.currentUser as! Admin,type: .checkIn, listOfAddedProduct: checkinItems)
-                        modelData.activities.append(newActivity)
-                        
-                        checkinItems.removeAll()
-                        selectedItems.removeAll()
-                        
-                    })
+                    Button("Confirm checkin", action: checkin)
                 }
                 
                 ScrollView{
@@ -79,6 +69,22 @@ struct CheckinForm: View {
         .padding()
         
         Spacer()
+    }
+    
+    func checkin() -> Void {
+        for item in checkinItems {
+            guard let index = products.firstIndex(where: { $0.id == item.product.id }) else {
+                continue
+            }
+            products[index].stocks += item.qty
+        }
+        
+        let newActivity = Activity(admin: modelData.currentUser as! Admin,type: .checkIn, listOfAddedProduct: checkinItems)
+        modelData.activities.append(newActivity)
+        
+        checkinItems.removeAll()
+        selectedItems.removeAll()
+        
     }
 }
 

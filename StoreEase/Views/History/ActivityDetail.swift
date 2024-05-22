@@ -53,7 +53,3 @@ struct ActivityDetail: View {
         .navigationTitle("Check-in Summary")
     }
 }
-
-#Preview {
-    ActivityDetail(activity: activities[0])
-}
