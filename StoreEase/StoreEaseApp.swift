@@ -13,6 +13,7 @@ struct StoreEaseApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Product.self,
+            Activity.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

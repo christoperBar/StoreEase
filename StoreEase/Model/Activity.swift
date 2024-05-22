@@ -6,12 +6,14 @@
 //
 
 import Foundation
+import SwiftData
 
-struct Activity: Hashable, Identifiable, Codable {
-    var id: String = UUID().uuidString
+@Model
+class Activity {
+    var id: String
     let admin: Admin
     var type: ActivityType
-    var date: Date = Date()
+    var date: Date
     var listOfAddedProduct: [AddedProduct]
     
     enum ActivityType: String, CaseIterable, Codable, Hashable, Identifiable {
@@ -19,6 +21,14 @@ struct Activity: Hashable, Identifiable, Codable {
         case checkOut = "Check-out"
         
         var id: String { self.rawValue }
+    }
+    
+    init(admin: Admin, type: ActivityType, listOfAddedProduct: [AddedProduct]) {
+        self.id = UUID().uuidString
+        self.admin = admin
+        self.type = type
+        self.date = Date()
+        self.listOfAddedProduct = listOfAddedProduct
     }
 }
 

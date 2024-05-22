@@ -17,6 +17,7 @@ struct CheckoutForm: View {
     
     @Environment(\.modelContext) private var context
     @Query private var products: [Product]
+    @Query private var activities: [Activity]
     
     
     func selectItemOptions(items: [Product]) -> [Product] {
@@ -90,7 +91,7 @@ struct CheckoutForm: View {
         }
         
         let newActivity = Activity(admin: modelData.currentUser as! Admin, type: .checkOut, listOfAddedProduct: checkinItems)
-        modelData.activities.append(newActivity)
+        context.insert(newActivity)
         
         checkinItems.removeAll()
         selectedItems.removeAll()

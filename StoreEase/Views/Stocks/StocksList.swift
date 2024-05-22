@@ -9,7 +9,6 @@ import SwiftUI
 import SwiftData
 
 struct StocksList: View {
-    @Environment(ModelData.self) var modelData
     @State private var searchItem: String = ""
     @State private var productName: String = ""
     @State private var isShowingSheet = false
@@ -115,5 +114,4 @@ struct StocksList: View {
 
 #Preview("Stocks"){
     StocksList()
-        .environment(ModelData())
 }
