@@ -28,7 +28,9 @@ struct LoginForm: View {
                    .textFieldStyle(RoundedBorderTextFieldStyle())
                    .padding(.bottom, 5)
 
-               SecureField("Password", text: $password)
+               SecureField("Password", text: $password, onCommit: {
+                   authenticate()
+               })
                    .textFieldStyle(RoundedBorderTextFieldStyle())
                    .padding(.bottom, 20)
 

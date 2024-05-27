@@ -40,7 +40,7 @@ struct StocksList: View {
                                         }
                                     
                                         Button {
-                                            context.delete(product)
+                                            deleteProduct(product: product)
                                         } label: {
                                             Text("Delete")
                                         }
@@ -58,7 +58,7 @@ struct StocksList: View {
                                     }
 
                                     Button {
-                                        context.delete(product)
+                                        deleteProduct(product: product)
                                     } label: {
                                         Text("Delete")
                                     }
@@ -69,7 +69,7 @@ struct StocksList: View {
         }.sheet(isPresented: $isShowingUpdateSheet,
                 onDismiss: {isShowingUpdateSheet = false}) {
              StockSheet("Update Product",refProduct: $productName, onSubmit: {
-                 products[selectedSheet].name = productName
+                 products[selectedSheet].updateProduct(productName)
                  isShowingUpdateSheet = false
              }){
                  isShowingUpdateSheet = false
@@ -98,8 +98,7 @@ struct StocksList: View {
                 .sheet(isPresented: $isShowingSheet,
                        onDismiss: {isShowingSheet = false}) {
                     StockSheet("Add Product",refProduct: $productName, onSubmit: {
-                        let newProduct = Product(name: productName)
-                        context.insert(newProduct)
+                        _ = Product(name: productName, context: context)
                         isShowingSheet = false
                     }){
                         isShowingSheet = false
@@ -109,6 +108,11 @@ struct StocksList: View {
             }
         }
         
+    }
+    func deleteProduct(product: Product) -> Void {
+        if products.firstIndex(where: { $0.id == product.id }) != nil {
+            product.deleteProduct(context: self.context)
+        }
     }
 }
 

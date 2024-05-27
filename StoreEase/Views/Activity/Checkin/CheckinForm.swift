@@ -15,6 +15,9 @@ struct CheckinForm: View {
     @State private var searchItem: String = ""
     @State private var selectedItems: [Product] = []
     @State private var checkinItems: [AddedProduct] = []
+    @State private var showAlert: Bool = false
+    @State private var alertMessage: String = ""
+    @State private var alertTitle: String = ""
     
     @Environment(\.modelContext) private var context
     @Query private var products: [Product]
@@ -36,7 +39,6 @@ struct CheckinForm: View {
     
     var body: some View {
         VStack(){
-
             Form {
                 Section{
                     Text("Choose product")
@@ -46,7 +48,7 @@ struct CheckinForm: View {
                         searchItem = ""
                         }
                     ).frame(width: 320)
-                    Button("Confirm checkin", action: checkin)
+                    Button("Confirm Check in", action: checkin)
                 }
                 
                 ScrollView{
@@ -69,6 +71,9 @@ struct CheckinForm: View {
         .frame(maxWidth: 400, minHeight: 450,alignment: .topLeading)
         .navigationTitle("Checkin items")
         .padding()
+        .alert(isPresented: $showAlert){
+            Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        }
         
         Spacer()
     }
@@ -81,12 +86,21 @@ struct CheckinForm: View {
             products[index].stocks += item.qty
         }
         
-        let newActivity = Activity(admin: modelData.currentUser as! Admin,type: .checkIn, listOfAddedProduct: checkinItems)
-        context.insert(newActivity)
-        
-        checkinItems.removeAll()
-        selectedItems.removeAll()
-        
+        if modelData.currentUser is Admin {
+            if checkinItems.isEmpty && selectedItems.isEmpty{
+                alertTitle = "Check In Failed"
+                alertMessage = "Please choose item to checkin."
+                showAlert = true
+            }
+            else{
+                _ = Activity(admin: modelData.currentUser as! Admin,type: .checkIn, listOfAddedProduct: checkinItems, context: context)
+                checkinItems.removeAll()
+                selectedItems.removeAll()
+                alertTitle = "Check In Successful"
+                alertMessage = "Check In has been successfully completed."
+                showAlert = true
+            }
+        }
     }
 }
 
