@@ -28,6 +28,9 @@ struct StockSheet: View {
                     .font(.body)
                 TextField("Produt Name", text: refProduct)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .onSubmit {
+                        onSubmit()
+                    }
             }.padding()
             HStack {
                 Button("Cancel", action: {

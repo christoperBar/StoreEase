@@ -99,10 +99,9 @@ struct CheckoutForm: View {
         if  modelData.currentUser is Admin {
             if checkinItems.isEmpty && selectedItems.isEmpty{
                 alertTitle = "Check Out Failed"
-                alertMessage = "Please choose item to checkout."
+                alertMessage = "You don't meet the requirements for check out."
                 showAlert = true
-            }
-            else{
+            }else{
                 _ = Activity(admin: modelData.currentUser as! Admin, type: .checkOut, listOfAddedProduct: checkinItems, context: context)
                 checkinItems.removeAll()
                 selectedItems.removeAll()
