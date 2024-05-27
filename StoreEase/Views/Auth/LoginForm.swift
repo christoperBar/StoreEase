@@ -28,7 +28,9 @@ struct LoginForm: View {
                    .textFieldStyle(RoundedBorderTextFieldStyle())
                    .padding(.bottom, 5)
 
-               SecureField("Password", text: $password)
+               SecureField("Password", text: $password, onCommit: {
+                   authenticate()
+               })
                    .textFieldStyle(RoundedBorderTextFieldStyle())
                    .padding(.bottom, 20)
 
@@ -58,7 +60,7 @@ struct LoginForm: View {
     func authenticate() -> Void {
         var usersQuery: [any User] = admins as [User]
         usersQuery += roots
-        if var user = usersQuery.first(where: { $0.username == username }){
+        if let user = usersQuery.first(where: { $0.username == username }){
             if user.isMatched(username: username, password: password){
                 modelData.currentUser = user
             }
@@ -67,16 +69,6 @@ struct LoginForm: View {
                 isShowingAlert = true
             }
         }
-//        else if var user = modelData.users.first(where: { $0.username == username }){
-//            if user.isMatched(username: username, password: password){
-//                modelData.currentUser = user
-//            }
-//            else{
-//                alertMessage = "Invalid password"
-//                isShowingAlert = true
-//            }
-//
-//        }
         else{
             alertMessage = "Username not found"
             isShowingAlert = true

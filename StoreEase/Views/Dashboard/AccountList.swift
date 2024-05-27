@@ -37,11 +37,7 @@ struct AccountList: View {
                             }) {
                                 Text("Reset Password")
                             }
-                            Button(action: {
-                                if admins.firstIndex(where: { $0.id == account.id }) != nil {
-                                    context.delete(account)
-                                }
-                            }) {
+                            Button(action: {deleteAdminAccount(account: account)}) {
                                 Text("Delete")
                             }
                         }
@@ -51,13 +47,13 @@ struct AccountList: View {
         .sheet(isPresented: $isShowingUpdateSheet,
                 onDismiss: {isShowingUpdateSheet = false}) {
              ResetPasswordSheet("Update Admin",password: $resetPassword, onSubmit: {
-                 admins[selectedSheet].password = resetPassword
+                 admins[selectedSheet].updatePassword(resetPassword)
                  isShowingUpdateSheet = false
              }){
                  isShowingUpdateSheet = false
              }
          }
-        .navigationTitle("Stocks")
+        .navigationTitle("Admins")
         .toolbar {
             ToolbarItemGroup {
                 Button(action: {
@@ -68,11 +64,10 @@ struct AccountList: View {
                 .sheet(isPresented: $isShowingSheet,
                         onDismiss: {isShowingSheet = false}) {
                     AddAdminSheet("Add Admin", username: $username, password: $password, onSubmit: {
-                        let newAccount = Admin(username: username, password: password)
-                        context.insert(newAccount)
-                         isShowingSheet = false
+                        _ = Admin(username: username, password: password, context: context)
+                        isShowingSheet = false
                      }){
-                         isShowingSheet = false
+                        isShowingSheet = false
                      }
                  }
                 Button(action: {
@@ -82,7 +77,15 @@ struct AccountList: View {
                 }
             }
         }
+        
     }
+    
+    func deleteAdminAccount(account: Admin) -> Void {
+        if admins.firstIndex(where: { $0.id == account.id }) != nil {
+            account.deleteAccount(context: self.context)
+        }
+    }
+    
 }
 
 #Preview {

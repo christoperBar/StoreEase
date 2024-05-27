@@ -24,9 +24,3 @@ struct ActivityItemRow: View {
     }
 
 }
-
-//#Preview {
-//    return Group{
-//        ActivityItemRow(addedProduct: AddedProduct)
-//    }
-//}

@@ -14,15 +14,25 @@ class Product{
     var name: String
     var stocks: Int
     
-    init(name: String) {
+    init(name: String, context: ModelContext) {
         self.id = UUID().uuidString
         self.name = name
         self.stocks = 0
+        
+        context.insert(self)
     }
     init(name: String, stocks: Int) {
         self.id = UUID().uuidString
         self.name = name
         self.stocks = stocks
+    }
+    
+    func updateProduct(_ name:String) -> Void {
+        self.name = name
+    }
+    
+    func deleteProduct(context: ModelContext) -> Void {
+        context.delete(self)
     }
 }
 

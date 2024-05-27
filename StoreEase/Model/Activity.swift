@@ -23,7 +23,7 @@ class Activity {
         var id: String { self.rawValue }
     }
     
-    init(admin: Admin, type: ActivityType, listOfAddedProduct: [AddedProduct]) {
+    init(admin: Admin, type: ActivityType, listOfAddedProduct: [AddedProduct], context: ModelContext) {
         self.id = UUID().uuidString
         self.admin = admin
         self.type = type

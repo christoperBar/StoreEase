@@ -14,10 +14,12 @@ class Root: User{
     var username: String
     var password: String
     
-    init(username: String, password: String) {
+    init(username: String, password: String, context: ModelContext) {
         self.id = UUID().uuidString
         self.username = username
         self.password = password
+        
+        context.insert(self)
     }
     
     func displayRole() -> String {

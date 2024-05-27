@@ -45,10 +45,8 @@ struct RegisterRootForm: View {
                        alertMessage = "Please enter both username and password"
                        isShowingAlert = true
                    } else {
-                       let newAccount = Root(username: username, password: password)
+                       let newAccount = Root(username: username, password: password, context: context)
                        modelData.currentUser = newAccount
-                       context.insert(newAccount)
-                       
                    }
                }){
                    Text("Register")

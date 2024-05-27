@@ -14,6 +14,9 @@ struct CheckoutForm: View {
     @State private var searchItem: String = ""
     @State private var selectedItems: [Product] = []
     @State private var checkinItems: [AddedProduct] = []
+    @State private var alertMessage: String = ""
+    @State private var alertTitle: String = ""
+    @State private var showAlert: Bool = false
     
     @Environment(\.modelContext) private var context
     @Query private var products: [Product]
@@ -24,7 +27,7 @@ struct CheckoutForm: View {
         var result: [Product] = []
         for item in items {
             
-            if let index = checkinItems.firstIndex(where: { $0.product.name == item.name }){
+            if checkinItems.firstIndex(where: { $0.product.name == item.name }) != nil{
                 continue
             }else{
                 result.append(item)
@@ -69,6 +72,9 @@ struct CheckoutForm: View {
         .frame(maxWidth: 400, minHeight: 450,alignment: .topLeading)
         .navigationTitle("Checkout items")
         .padding()
+        .alert(isPresented: $showAlert){
+            Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+        }
         
         Spacer()
     }
@@ -90,12 +96,21 @@ struct CheckoutForm: View {
             products[index].stocks -= item.qty
         }
         
-        let newActivity = Activity(admin: modelData.currentUser as! Admin, type: .checkOut, listOfAddedProduct: checkinItems)
-        context.insert(newActivity)
-        
-        checkinItems.removeAll()
-        selectedItems.removeAll()
-        
+        if  modelData.currentUser is Admin {
+            if checkinItems.isEmpty && selectedItems.isEmpty{
+                alertTitle = "Check Out Failed"
+                alertMessage = "Please choose item to checkout."
+                showAlert = true
+            }
+            else{
+                _ = Activity(admin: modelData.currentUser as! Admin, type: .checkOut, listOfAddedProduct: checkinItems, context: context)
+                checkinItems.removeAll()
+                selectedItems.removeAll()
+                alertTitle = "Check Out Successful"
+                alertMessage = "Check Out has been successfully completed."
+                showAlert = true
+            }
+        }
     }
 }
 
