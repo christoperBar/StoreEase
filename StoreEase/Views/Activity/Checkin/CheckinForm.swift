@@ -38,41 +38,43 @@ struct CheckinForm: View {
     }
     
     var body: some View {
-        VStack(){
-            Form {
-                Section{
-                    Text("Choose product")
-                        .font(.callout)
-                    VDKComboBox(itemProducts: selectItemOptions(items: products), text: $searchItem, onSelect: {
-                        item in checkinItems.append(AddedProduct(product: ActivityProduct(convert: item), qty: 0) );
-                        searchItem = ""
-                        }
-                    ).frame(width: 320)
-                    Button("Confirm Check in", action: checkin)
-                }
-                
-                ScrollView{
-                    VStack(alignment:.leading){
-                        Section(header: Text("Items")){
-                            ForEach($checkinItems){$item in
-                                CheckInItemRow(item: $item, removeItem: {
-                                    if let checkinItemIndex = checkinItems.firstIndex(where: {$0.id == item.id}){
-                                        checkinItems.remove(at: checkinItemIndex)
-                                    }
-                                })
-                                    
+        ZStack {
+            VStack(){
+                Form {
+                    Section{
+                        Text("Choose product")
+                            .font(.callout)
+                        VDKComboBox(itemProducts: selectItemOptions(items: products), text: $searchItem, onSelect: {
+                            item in checkinItems.append(AddedProduct(product: ActivityProduct(convert: item), qty: 0) );
+                            searchItem = ""
                             }
-                        }
-                        .formStyle(.columns)
+                        ).frame(width: 320)
+                        Button("Confirm Check in", action: checkin)
                     }
-                }.padding(.top)
+                    
+                    ScrollView{
+                        VStack(alignment:.leading){
+                            Section(header: Text("Items")){
+                                ForEach($checkinItems){$item in
+                                    CheckInItemRow(item: $item, removeItem: {
+                                        if let checkinItemIndex = checkinItems.firstIndex(where: {$0.id == item.id}){
+                                            checkinItems.remove(at: checkinItemIndex)
+                                        }
+                                    })
+                                        
+                                }
+                            }
+                            .formStyle(.columns)
+                        }
+                    }.padding(.top)
+                }
             }
-        }
-        .frame(maxWidth: 400, minHeight: 450,alignment: .topLeading)
-        .navigationTitle("Checkin items")
-        .padding()
-        .alert(isPresented: $showAlert){
-            Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            .frame(maxWidth: 400, minHeight: 450,alignment: .topLeading)
+            .navigationTitle("Checkin items")
+            .padding()
+            .alert(isPresented: $showAlert){
+                Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            }
         }
         
         Spacer()

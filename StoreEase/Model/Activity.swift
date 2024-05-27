@@ -29,6 +29,9 @@ class Activity {
         self.type = type
         self.date = Date()
         self.listOfAddedProduct = listOfAddedProduct
+        
+        context.insert(self)
+        
     }
 }
 
