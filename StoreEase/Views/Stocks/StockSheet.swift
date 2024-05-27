@@ -40,7 +40,3 @@ struct StockSheet: View {
         }
     }
 }
-
-//#Preview {
-//    StockSheet()
-//}

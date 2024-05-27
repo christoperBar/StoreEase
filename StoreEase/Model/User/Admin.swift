@@ -14,10 +14,12 @@ class Admin: User{
     var username: String
     var password: String
     
-    init(username: String, password: String) {
+    init(username: String, password: String, context: ModelContext) {
         self.id = UUID().uuidString
         self.username = username
         self.password = password
+        
+        context.insert(self)
     }
     
     func displayRole() -> String {
@@ -26,5 +28,14 @@ class Admin: User{
     
     func isMatched(username: String, password: String) -> Bool {
         return self.username == username && self.password == password
+    }
+    
+    
+    func updatePassword(_ password:String) -> Void {
+        self.password = password
+    }
+    
+    func deleteAccount(context: ModelContext) -> Void {
+        context.delete(self)
     }
 }

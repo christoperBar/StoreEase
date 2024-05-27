@@ -25,7 +25,7 @@ struct CheckinForm: View {
         var result: [Product] = []
         for item in items {
             
-            if let index = checkinItems.firstIndex(where: { $0.product.name == item.name }){
+            if checkinItems.firstIndex(where: { $0.product.name == item.name }) != nil{
                 continue
             }else{
                 result.append(item)
