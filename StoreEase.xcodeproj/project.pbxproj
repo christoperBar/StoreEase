@@ -37,8 +37,23 @@
 		EE8929B92BF8E3A600B205B5 /* VDKComboBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8929B82BF8E3A600B205B5 /* VDKComboBox.swift */; };
 		EE8929BB2BF8E40C00B205B5 /* CheckinForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8929BA2BF8E40C00B205B5 /* CheckinForm.swift */; };
 		EE8929BE2BF8E53100B205B5 /* CheckoutForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8929BD2BF8E53100B205B5 /* CheckoutForm.swift */; };
+		EEC346C82C060E3F00EF0113 /* StoreEaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC346C72C060E3F00EF0113 /* StoreEaseTests.swift */; };
+		EEC346CF2C060EE900EF0113 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC346CE2C060EE900EF0113 /* Product.swift */; };
+		EEC346D12C060F0000EF0113 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC346D02C060F0000EF0113 /* Activity.swift */; };
+		EEC346D52C060F2000EF0113 /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC346D42C060F2000EF0113 /* Checkout.swift */; };
+		EEC346D92C060F3C00EF0113 /* Checkin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC346D82C060F3C00EF0113 /* Checkin.swift */; };
 		F921050E2BF6558E0096EED1 /* StocksRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F921050D2BF6558E0096EED1 /* StocksRow.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EEC346C92C060E3F00EF0113 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04BE24862BF4CBF5005CBF2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04BE248D2BF4CBF5005CBF2C;
+			remoteInfo = StoreEase;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0427C05E2BF8E9D6002AF1F3 /* StockSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockSheet.swift; sourceTree = "<group>"; };
@@ -73,11 +88,24 @@
 		EE8929B82BF8E3A600B205B5 /* VDKComboBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VDKComboBox.swift; sourceTree = "<group>"; };
 		EE8929BA2BF8E40C00B205B5 /* CheckinForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinForm.swift; sourceTree = "<group>"; };
 		EE8929BD2BF8E53100B205B5 /* CheckoutForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutForm.swift; sourceTree = "<group>"; };
+		EEC346C52C060E3F00EF0113 /* StoreEaseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StoreEaseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEC346C72C060E3F00EF0113 /* StoreEaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEaseTests.swift; sourceTree = "<group>"; };
+		EEC346CE2C060EE900EF0113 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		EEC346D02C060F0000EF0113 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		EEC346D42C060F2000EF0113 /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
+		EEC346D82C060F3C00EF0113 /* Checkin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkin.swift; sourceTree = "<group>"; };
 		F921050D2BF6558E0096EED1 /* StocksRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StocksRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		04BE248B2BF4CBF5005CBF2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC346C22C060E3F00EF0113 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -121,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				04BE24902BF4CBF5005CBF2C /* StoreEase */,
+				EEC346C62C060E3F00EF0113 /* StoreEaseTests */,
 				04BE248F2BF4CBF5005CBF2C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -129,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				04BE248E2BF4CBF5005CBF2C /* StoreEase.app */,
+				EEC346C52C060E3F00EF0113 /* StoreEaseTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,6 +268,18 @@
 			path = Checkout;
 			sourceTree = "<group>";
 		};
+		EEC346C62C060E3F00EF0113 /* StoreEaseTests */ = {
+			isa = PBXGroup;
+			children = (
+				EEC346C72C060E3F00EF0113 /* StoreEaseTests.swift */,
+				EEC346CE2C060EE900EF0113 /* Product.swift */,
+				EEC346D02C060F0000EF0113 /* Activity.swift */,
+				EEC346D42C060F2000EF0113 /* Checkout.swift */,
+				EEC346D82C060F3C00EF0113 /* Checkin.swift */,
+			);
+			path = StoreEaseTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,6 +300,24 @@
 			productReference = 04BE248E2BF4CBF5005CBF2C /* StoreEase.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EEC346C42C060E3F00EF0113 /* StoreEaseTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEC346CD2C060E3F00EF0113 /* Build configuration list for PBXNativeTarget "StoreEaseTests" */;
+			buildPhases = (
+				EEC346C12C060E3F00EF0113 /* Sources */,
+				EEC346C22C060E3F00EF0113 /* Frameworks */,
+				EEC346C32C060E3F00EF0113 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EEC346CA2C060E3F00EF0113 /* PBXTargetDependency */,
+			);
+			name = StoreEaseTests;
+			productName = StoreEaseTests;
+			productReference = EEC346C52C060E3F00EF0113 /* StoreEaseTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -270,6 +330,10 @@
 				TargetAttributes = {
 					04BE248D2BF4CBF5005CBF2C = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					EEC346C42C060E3F00EF0113 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 04BE248D2BF4CBF5005CBF2C;
 					};
 				};
 			};
@@ -287,6 +351,7 @@
 			projectRoot = "";
 			targets = (
 				04BE248D2BF4CBF5005CBF2C /* StoreEase */,
+				EEC346C42C060E3F00EF0113 /* StoreEaseTests */,
 			);
 		};
 /* End PBXProject section */
@@ -298,6 +363,13 @@
 			files = (
 				04BE249B2BF4CBF8005CBF2C /* Preview Assets.xcassets in Resources */,
 				04BE24982BF4CBF8005CBF2C /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEC346C32C060E3F00EF0113 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,7 +412,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EEC346C12C060E3F00EF0113 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEC346D12C060F0000EF0113 /* Activity.swift in Sources */,
+				EEC346D52C060F2000EF0113 /* Checkout.swift in Sources */,
+				EEC346C82C060E3F00EF0113 /* StoreEaseTests.swift in Sources */,
+				EEC346CF2C060EE900EF0113 /* Product.swift in Sources */,
+				EEC346D92C060F3C00EF0113 /* Checkin.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EEC346CA2C060E3F00EF0113 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04BE248D2BF4CBF5005CBF2C /* StoreEase */;
+			targetProxy = EEC346C92C060E3F00EF0113 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		04BE249D2BF4CBF8005CBF2C /* Debug */ = {
@@ -513,6 +605,40 @@
 			};
 			name = Release;
 		};
+		EEC346CB2C060E3F00EF0113 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-706012210024.StoreEaseTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StoreEase.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StoreEase";
+			};
+			name = Debug;
+		};
+		EEC346CC2C060E3F00EF0113 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "-706012210024.StoreEaseTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/StoreEase.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/StoreEase";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -530,6 +656,15 @@
 			buildConfigurations = (
 				04BE24A02BF4CBF8005CBF2C /* Debug */,
 				04BE24A12BF4CBF8005CBF2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEC346CD2C060E3F00EF0113 /* Build configuration list for PBXNativeTarget "StoreEaseTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEC346CB2C060E3F00EF0113 /* Debug */,
+				EEC346CC2C060E3F00EF0113 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
