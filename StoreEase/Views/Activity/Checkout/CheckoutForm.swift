@@ -79,29 +79,27 @@ struct CheckoutForm: View {
         Spacer()
     }
     private func checkoutItems() -> Void {
-        for item in checkinItems {
-        
-            if item.qty < 1 {
-                guard let itemInvalidInputIndex = checkinItems.firstIndex(of: item) else {
-                    continue
-                }
-            
-                checkinItems.remove(at: itemInvalidInputIndex)
-            }
-
-            guard let index = products.firstIndex(where: { $0.id == item.product.id }) else {
-                continue
-            }
-            
-            products[index].stocks -= item.qty
-        }
-        
         if  modelData.currentUser is Admin {
             if checkinItems.isEmpty && selectedItems.isEmpty{
                 alertTitle = "Check Out Failed"
                 alertMessage = "You don't meet the requirements for check out."
                 showAlert = true
-            }else{
+            }
+            else{
+                for item in checkinItems {
+                    if item.qty < 1 {
+                        alertTitle = "Check Out Failed"
+                        alertMessage = "Please input item quantity correctly."
+                        showAlert = true
+                        return
+                    }
+                }
+                for item in checkinItems {
+                    guard let index = products.firstIndex(where: { $0.id == item.product.id }) else {
+                        continue
+                    }
+                    products[index].stocks -= item.qty
+                }
                 _ = Activity(admin: modelData.currentUser as! Admin, type: .checkOut, listOfAddedProduct: checkinItems, context: context)
                 checkinItems.removeAll()
                 selectedItems.removeAll()

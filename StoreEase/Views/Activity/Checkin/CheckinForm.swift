@@ -45,13 +45,13 @@ struct CheckinForm: View {
                         Text("Choose product")
                             .font(.callout)
                         VDKComboBox(itemProducts: selectItemOptions(items: products), text: $searchItem, onSelect: {
-                            item in checkinItems.append(AddedProduct(product: ActivityProduct(convert: item), qty: 0) );
+                            item in
+                            checkinItems.append(AddedProduct(product: ActivityProduct(convert: item), qty: 0) );
                             searchItem = ""
                             }
                         ).frame(width: 320)
                         Button("Confirm Check in", action: checkin)
                     }
-                    
                     ScrollView{
                         VStack(alignment:.leading){
                             Section(header: Text("Items")){
@@ -61,7 +61,6 @@ struct CheckinForm: View {
                                             checkinItems.remove(at: checkinItemIndex)
                                         }
                                     })
-                                        
                                 }
                             }
                             .formStyle(.columns)
@@ -76,18 +75,10 @@ struct CheckinForm: View {
                 Alert(title: Text(alertTitle), message: Text(alertMessage), dismissButton: .default(Text("OK")))
             }
         }
-        
         Spacer()
     }
     
     func checkin() -> Void {
-        for item in checkinItems {
-            guard let index = products.firstIndex(where: { $0.id == item.product.id }) else {
-                continue
-            }
-            products[index].stocks += item.qty
-        }
-        
         if modelData.currentUser is Admin {
             if checkinItems.isEmpty && selectedItems.isEmpty{
                 alertTitle = "Check In Failed"
@@ -95,6 +86,20 @@ struct CheckinForm: View {
                 showAlert = true
             }
             else{
+                for item in checkinItems {
+                    if item.qty < 1 {
+                        alertTitle = "Check In Failed"
+                        alertMessage = "Please input item quantity correctly."
+                        showAlert = true
+                        return
+                    }
+                }
+                for item in checkinItems {
+                    guard let index = products.firstIndex(where: { $0.id == item.product.id }) else {
+                        continue
+                    }
+                    products[index].stocks += item.qty
+                }
                 _ = Activity(admin: modelData.currentUser as! Admin,type: .checkIn, listOfAddedProduct: checkinItems, context: context)
                 checkinItems.removeAll()
                 selectedItems.removeAll()
