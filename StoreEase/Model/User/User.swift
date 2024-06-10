@@ -17,9 +17,5 @@ protocol User{
     func isMatched(username: String, password: String) -> Bool
 }
 
-enum UserRole {
-    case admin
-    case root
-}
 
 

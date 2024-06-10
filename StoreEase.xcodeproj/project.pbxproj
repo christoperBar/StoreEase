@@ -22,7 +22,6 @@
 		04B61C902BF63FF900331A1A /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B61C8F2BF63FF900331A1A /* Product.swift */; };
 		04BE24922BF4CBF5005CBF2C /* StoreEaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE24912BF4CBF5005CBF2C /* StoreEaseApp.swift */; };
 		04BE24942BF4CBF5005CBF2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE24932BF4CBF5005CBF2C /* ContentView.swift */; };
-		04BE24962BF4CBF5005CBF2C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE24952BF4CBF5005CBF2C /* Item.swift */; };
 		04BE24982BF4CBF8005CBF2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BE24972BF4CBF8005CBF2C /* Assets.xcassets */; };
 		04BE249B2BF4CBF8005CBF2C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BE249A2BF4CBF8005CBF2C /* Preview Assets.xcassets */; };
 		04C8E6112BF5E209006A77CD /* HistoryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C8E6102BF5E209006A77CD /* HistoryList.swift */; };
@@ -57,7 +56,6 @@
 		04BE248E2BF4CBF5005CBF2C /* StoreEase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoreEase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE24912BF4CBF5005CBF2C /* StoreEaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreEaseApp.swift; sourceTree = "<group>"; };
 		04BE24932BF4CBF5005CBF2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		04BE24952BF4CBF5005CBF2C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		04BE24972BF4CBF8005CBF2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04BE249A2BF4CBF8005CBF2C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		04BE249C2BF4CBF8005CBF2C /* StoreEase.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StoreEase.entitlements; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 				048586622BFC645B00B69715 /* User */,
 				04B61C8D2BF63B8800331A1A /* Activity.swift */,
 				04B61C8F2BF63FF900331A1A /* Product.swift */,
-				04BE24952BF4CBF5005CBF2C /* Item.swift */,
 				EE7A07E32BF4EF470033B0FE /* View.swift */,
 				047399A92BFA4D3E000471C3 /* ModelData.swift */,
 			);
@@ -317,7 +314,6 @@
 				0485866D2BFCA17300B69715 /* AccountList.swift in Sources */,
 				EE7A07E42BF4EF470033B0FE /* View.swift in Sources */,
 				0485866F2BFCA18800B69715 /* AccountRow.swift in Sources */,
-				04BE24962BF4CBF5005CBF2C /* Item.swift in Sources */,
 				EE8929BB2BF8E40C00B205B5 /* CheckinForm.swift in Sources */,
 				F921050E2BF6558E0096EED1 /* StocksRow.swift in Sources */,
 				04B61C902BF63FF900331A1A /* Product.swift in Sources */,
