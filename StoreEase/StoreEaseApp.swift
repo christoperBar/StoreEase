@@ -12,7 +12,10 @@ import SwiftData
 struct StoreEaseApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Product.self,
+            Activity.self,
+            Admin.self,
+            Root.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -26,6 +29,7 @@ struct StoreEaseApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environment(ModelData())
         }
         .modelContainer(sharedModelContainer)
     }
