@@ -1,0 +1,2 @@
+[Class diagram pdf](https://github.com/user-attachments/files/15774248/nLbjRzis4FwkNy7rosmqpWymYhI9dRR1yeOeBJOKHS18jCr58ZMHJcAiws_VyKqY9LcostNzaeZ7EzuB7zuTwJT2ubAkyopwHQv8Jb2HOSgYNr5y-yVvAVmzlhcD8l50MO5Bd2EnmYb_eco95ZWJf68ylPn7WaZ4S4v4WHCI4oKWUOaOPoIAeYJ3Gg0N7mGfNo0iaFf0hrwXqVK1UiUpbB0RdevHKNB94vwXeoFqDueG-afJD4MnB46f6gv.pdf)
+![Class diagram](https://github.com/christoperBar/StoreEase/assets/120613631/a08a5b30-5717-4048-83bc-67760511d965)
