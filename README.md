@@ -1,2 +1,2 @@
-[Class diagram pdf](https://github.com/user-attachments/files/15782483/SE.StoreEase.-.Page.1.pdf)
-![SE StoreEase - Page 1(16)](https://github.com/christoperBar/StoreEase/assets/96227680/935f7ab0-b44a-44be-aca5-7f6a36224a0d)
+[Class diagram pdf](https://github.com/user-attachments/files/15782575/SE.StoreEase.-.Page.1-1.pdf)
+![SE StoreEase - Page 1(17)](https://github.com/christoperBar/StoreEase/assets/96227680/dae5353c-7f6c-4ad4-83f2-1b7bf97ef9f0)
